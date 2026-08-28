@@ -6,92 +6,110 @@
 <title>Watch Enjoy 🎬</title>
 
 <style>
-body {
-  margin: 0;
-  background: #080808;
-  color: white;
-  font-family: Arial, sans-serif;
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#080808;
+color:white;
+font-family:Arial,sans-serif;
 }
 
-header {
-  text-align: center;
-  padding: 30px 15px;
-  background: #111;
+header{
+padding:25px 18px;
+background:linear-gradient(#171717,#080808);
+text-align:center;
 }
 
-h1 {
-  font-size: 32px;
-  margin: 0;
+.logo{
+font-size:32px;
+font-weight:bold;
 }
 
-p {
-  color: #999;
+.subtitle{
+color:#aaa;
+margin:8px 0 18px;
 }
 
-input {
-  width: 90%;
-  max-width: 500px;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  background: #1b1b1b;
-  color: white;
-  font-size: 16px;
+.search{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #333;
+background:#181818;
+color:white;
+font-size:16px;
+outline:none;
 }
 
-main {
-  padding: 20px;
+main{
+padding:20px;
 }
 
-h2 {
-  margin-top: 25px;
+h2{
+font-size:21px;
+margin:25px 0 14px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:13px;
 }
 
-.card {
-  background: #151515;
-  padding: 15px;
-  border-radius: 15px;
-  border: 1px solid #252525;
+.card{
+background:#151515;
+border-radius:15px;
+overflow:hidden;
+border:1px solid #242424;
 }
 
-.poster {
-  height: 130px;
-  border-radius: 10px;
-  background: #222;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 45px;
+.poster{
+height:190px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:55px;
+background:linear-gradient(135deg,#333,#111);
 }
 
-.title {
-  font-size: 17px;
-  font-weight: bold;
-  margin-top: 10px;
+.info{
+padding:13px;
 }
 
-.watch {
-  display: block;
-  margin-top: 12px;
-  padding: 10px;
-  text-align: center;
-  background: white;
-  color: black;
-  text-decoration: none;
-  border-radius: 9px;
-  font-weight: bold;
+.title{
+font-size:17px;
+font-weight:bold;
 }
 
-@media (min-width: 700px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.type{
+font-size:13px;
+color:#999;
+margin-top:5px;
+}
+
+.watch{
+display:block;
+margin-top:12px;
+padding:10px;
+border-radius:9px;
+background:white;
+color:black;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#666;
+}
+
+@media(min-width:700px){
+.grid{
+grid-template-columns:repeat(4,1fr);
+}
 }
 </style>
 </head>
@@ -99,26 +117,40 @@ h2 {
 <body>
 
 <header>
-<h1>🎬 Watch Enjoy</h1>
-<p>أفلام ومسلسلات</p>
+
+<div class="logo">🎬 Watch Enjoy</div>
+
+<div class="subtitle">
+أفلام ومسلسلات
+</div>
 
 <input
+class="search"
 id="search"
-type="text"
 placeholder="🔎 ابحث عن فيلم أو مسلسل..."
-onkeyup="search()">
+oninput="searchMovies()">
+
 </header>
 
 <main>
 
-<h2>🎬 الأفلام</h2>
+<h2>🔥 الأفلام</h2>
 
 <div class="grid">
 
 <div class="card">
+
 <div class="poster">🍿</div>
-<div class="title">أفلام مجانية</div>
-<p>محتوى متاح بشكل قانوني</p>
+
+<div class="info">
+
+<div class="title">
+أفلام مجانية
+</div>
+
+<div class="type">
+أفلام
+</div>
 
 <a
 class="watch"
@@ -126,12 +158,24 @@ href="https://www.youtube.com/movies"
 target="_blank">
 ▶ مشاهدة
 </a>
+
+</div>
 </div>
 
+
 <div class="card">
+
 <div class="poster">🎥</div>
-<div class="title">فيلم جديد</div>
-<p>أضف رابط المشاهدة الرسمي</p>
+
+<div class="info">
+
+<div class="title">
+فيلم جديد
+</div>
+
+<div class="type">
+فيلم
+</div>
 
 <a
 class="watch"
@@ -139,31 +183,30 @@ href="#"
 onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
 ▶ مشاهدة
 </a>
+
+</div>
 </div>
 
 </div>
+
 
 <h2>📺 المسلسلات</h2>
 
 <div class="grid">
 
 <div class="card">
-<div class="poster">📺</div>
-<div class="title">مسلسل جديد</div>
-<p>أضف رابط المشاهدة الرسمي</p>
 
-<a
-class="watch"
-href="#"
-onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
-▶ مشاهدة
-</a>
+<div class="poster">📺</div>
+
+<div class="info">
+
+<div class="title">
+مسلسل جديد
 </div>
 
-<div class="card">
-<div class="poster">⭐</div>
-<div class="title">المفضلة</div>
-<p>قائمة المشاهدة</p>
+<div class="type">
+مسلسل
+</div>
 
 <a
 class="watch"
@@ -171,38 +214,73 @@ href="#"
 onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
 ▶ مشاهدة
 </a>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<div class="poster">⭐</div>
+
+<div class="info">
+
+<div class="title">
+المفضلة
+</div>
+
+<div class="type">
+قائمة المشاهدة
+</div>
+
+<a
+class="watch"
+href="#"
+onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
+▶ مشاهدة
+</a>
+
+</div>
 </div>
 
 </div>
 
 </main>
 
-<script>
-function search() {
+<footer>
+Watch Enjoy © 2026
+</footer>
 
-let text = document
+
+<script>
+
+function searchMovies(){
+
+let text=document
 .getElementById("search")
 .value
 .toLowerCase();
 
-let cards = document
+let cards=document
 .querySelectorAll(".card");
 
-cards.forEach(function(card) {
+cards.forEach(function(card){
 
-let title = card
+let title=card
 .querySelector(".title")
 .innerText
 .toLowerCase();
 
-card.style.display =
-title.includes(text)
-? "block"
-: "none";
+if(title.includes(text)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
 
 });
 
 }
+
 </script>
 
 </body>
