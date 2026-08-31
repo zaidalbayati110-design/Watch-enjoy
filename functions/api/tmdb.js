@@ -1,55 +1,116 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
 
-  const endpoint =
-    url.searchParams.get("endpoint") || "trending/movie/week";
+  let endpoint =
+    url.searchParams.get("endpoint") ||
+    "trending/movie/week";
 
-  const allowed = [
-    "trending/movie/week",
-    "trending/tv/week",
-    "movie/popular",
-    "tv/popular",
-    "movie/now_playing",
-    "movie/top_rated",
-    "tv/top_rated",
-    "discover/movie",
-    "discover/tv",
-    "search/movie",
-    "search/tv"
+  endpoint = endpoint.replace(/^\/+/, "").replace(/\/+$/, "");
+
+  /*
+    المسارات المسموحة
+    ندعم:
+    - الأفلام
+    - المسلسلات
+    - المواسم والحلقات
+    - مصادر المشاهدة
+  */
+
+  const allowedPatterns = [
+    /^trending\/(movie|tv)\/(day|week)$/,
+
+    /^movie\/(popular|now_playing|top_rated|upcoming)$/,
+    /^tv\/(popular|top_rated|on_the_air|airing_today)$/,
+
+    /^discover\/(movie|tv)$/,
+
+    /^search\/(movie|tv)$/,
+
+    /^movie\/[0-9]+$/,
+    /^tv\/[0-9]+$/,
+
+    /^movie\/[0-9]+\/watch\/providers$/,
+
+    /^tv\/[0-9]+\/watch\/providers$/,
+
+    /^tv\/[0-9]+\/season\/[0-9]+$/
   ];
 
-  const cleanEndpoint = endpoint.replace(/^\/+/, "");
+  const allowed = allowedPatterns.some(
+    pattern => pattern.test(endpoint)
+  );
 
-  if (!allowed.includes(cleanEndpoint)) {
+  if (!allowed) {
     return new Response(
-      JSON.stringify({ error: "Endpoint not allowed" }),
+      JSON.stringify({
+        success: false,
+        error: "Endpoint not allowed"
+      }),
       {
         status: 400,
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*"
         }
       }
     );
   }
 
   const params = new URLSearchParams(url.searchParams);
-
   params.delete("endpoint");
 
-  params.set("api_key", context.env.TMDB_API_KEY);
+  /*
+    TMDB API
+  */
 
   const apiUrl =
-    `https://api.themoviedb.org/3/${cleanEndpoint}?${params.toString()}`;
+    `https://api.themoviedb.org/3/${endpoint}` +
+    (params.toString() ? `?${params.toString()}` : "");
 
-  const response = await fetch(apiUrl);
+  try {
 
-  const data = await response.text();
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization:
+          `Bearer ${context.env.TMDB_TOKEN}`,
 
-  return new Response(data, {
-    status: response.status,
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    }
-  });
+        accept: "application/json"
+      }
+    });
+
+    const data = await response.text();
+
+    return new Response(data, {
+      status: response.status,
+
+      headers: {
+        "Content-Type":
+          "application/json; charset=utf-8",
+
+        "Access-Control-Allow-Origin": "*",
+
+        "Cache-Control":
+          "public, max-age=300"
+      }
+    });
+
+  } catch (error) {
+
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: "TMDB request failed"
+      }),
+      {
+        status: 500,
+
+        headers: {
+          "Content-Type":
+            "application/json; charset=utf-8",
+
+          "Access-Control-Allow-Origin": "*"
+        }
+      }
+    );
+  }
 }
