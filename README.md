@@ -5,16 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Watch Enjoy 🎬</title>
 
 <style>
-
-/* =========================
-   الأساس
-========================= */
 
 *{
 box-sizing:border-box;
@@ -38,646 +33,365 @@ Arial,
 sans-serif;
 }
 
-
-/* =========================
-   الهيدر
-========================= */
-
 header{
-
 position:sticky;
-
 top:0;
-
 z-index:30;
-
 padding:14px 15px;
-
 background:rgba(7,7,7,.94);
-
 backdrop-filter:blur(16px);
-
 border-bottom:1px solid #222;
-
 }
 
 .top{
-
 height:45px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 position:relative;
-
 }
 
 .logo{
-
 font-size:27px;
-
 font-weight:800;
-
 }
 
-
-/* زر الثلاث خطوط */
+.menu-button,
+.search-button{
+position:absolute;
+top:0;
+width:43px;
+height:43px;
+border:1px solid #333;
+border-radius:12px;
+background:#181818;
+color:white;
+font-size:21px;
+}
 
 .menu-button{
-
-position:absolute;
-
 right:0;
-
-top:0;
-
-width:43px;
-
-height:43px;
-
-border:1px solid #333;
-
-border-radius:12px;
-
-background:#181818;
-
-color:white;
-
 font-size:23px;
-
 }
-
-
-/* زر البحث */
 
 .search-button{
-
-position:absolute;
-
 left:0;
-
-top:0;
-
-width:43px;
-
-height:43px;
-
-border:1px solid #333;
-
-border-radius:12px;
-
-background:#181818;
-
-color:white;
-
-font-size:21px;
-
 }
 
-
-/* خانة البحث */
-
 .search-box{
-
 display:none;
-
 margin-top:12px;
-
 }
 
 .search-box.show{
-
 display:block;
-
 }
 
 .search{
-
 width:100%;
-
 padding:13px;
-
 border-radius:12px;
-
 border:1px solid #333;
-
 background:#151515;
-
 color:white;
-
 font-size:16px;
-
 outline:none;
-
 }
 
-
-/* =========================
-   القائمة الجانبية
-========================= */
-
 .overlay{
-
 display:none;
-
 position:fixed;
-
 inset:0;
-
 background:rgba(0,0,0,.65);
-
 z-index:90;
-
 }
 
 .overlay.show{
-
 display:block;
-
 }
 
-
 .side-menu{
-
 position:fixed;
-
 top:0;
-
 right:-290px;
-
 width:275px;
-
 height:100vh;
-
 background:#111;
-
 z-index:100;
-
 padding:25px 17px;
-
 box-shadow:-10px 0 35px rgba(0,0,0,.6);
-
 transition:.3s;
-
 }
 
 .side-menu.open{
-
 right:0;
-
 }
 
 .menu-title{
-
 font-size:22px;
-
 font-weight:bold;
-
 margin-bottom:25px;
-
 }
 
 .close-menu{
-
 position:absolute;
-
 left:15px;
-
 top:17px;
-
 width:38px;
-
 height:38px;
-
 border:0;
-
 border-radius:9px;
-
 background:#242424;
-
 color:white;
-
 font-size:22px;
-
 }
 
 .menu-item{
-
 width:100%;
-
 padding:15px;
-
 margin-bottom:9px;
-
 border:0;
-
 border-radius:12px;
-
 background:#1b1b1b;
-
 color:white;
-
 text-align:right;
-
 font-size:16px;
-
 }
 
-
-/* =========================
-   المحتوى
-========================= */
-
 main{
-
 max-width:1300px;
-
 margin:auto;
-
 padding:15px 15px 50px;
-
 }
 
 .page{
-
 display:none;
-
 }
 
-
-/* =========================
-   العرض الحديث
-========================= */
-
 .hero-title{
-
 font-size:21px;
-
 font-weight:bold;
-
 margin:15px 0;
-
 }
 
 .hero{
-
 display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
+grid-template-columns:repeat(3,1fr);
 gap:9px;
-
 overflow:hidden;
-
 }
 
 .hero-card{
-
 position:relative;
-
 height:300px;
-
 border-radius:16px;
-
 overflow:hidden;
-
 background:
 linear-gradient(
 135deg,
 #333,
 #111
 );
-
 transition:.5s;
-
 }
 
 .hero-poster{
-
 width:100%;
-
 height:100%;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 font-size:55px;
+background:#111;
+}
 
+.hero-poster img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .hero-info{
-
 position:absolute;
-
 bottom:0;
-
 right:0;
-
 left:0;
-
 padding:14px;
-
 background:
 linear-gradient(
 transparent,
 rgba(0,0,0,.95)
 );
-
 }
 
 .hero-name{
-
 font-size:15px;
-
 font-weight:bold;
-
 }
 
-
-/* =========================
-   الأقسام
-========================= */
-
 .section{
-
 margin-top:30px;
-
 }
 
 .section-header{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 margin-bottom:13px;
-
 }
 
 .section-header h2{
-
 margin:0;
-
 font-size:20px;
-
 }
 
 .section-header span{
-
 font-size:12px;
-
 color:#777;
-
 }
 
-
-/* صف أفقي */
-
 .horizontal{
-
 display:flex;
-
 gap:12px;
-
 overflow-x:auto;
-
 padding-bottom:7px;
-
 scrollbar-width:none;
-
 }
 
 .horizontal::-webkit-scrollbar{
-
 display:none;
-
 }
 
-
-/* البطاقة */
-
 .card{
-
 flex:0 0 135px;
-
 background:#151515;
-
 border:1px solid #242424;
-
 border-radius:13px;
-
 overflow:hidden;
-
 }
 
 .poster{
-
 height:190px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 font-size:48px;
-
 background:
 linear-gradient(
 135deg,
 #353535,
 #101010
 );
+}
 
+.poster img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .info{
-
 padding:10px;
-
 }
 
 .title{
-
 font-size:14px;
-
 font-weight:bold;
-
 white-space:nowrap;
-
 overflow:hidden;
-
 text-overflow:ellipsis;
-
 }
 
 .meta{
-
 font-size:11px;
-
 color:#888;
-
 margin-top:5px;
-
 }
 
 .actions{
-
 display:flex;
-
 gap:5px;
-
 margin-top:9px;
-
 }
 
 .watch{
-
 flex:1;
-
 border:0;
-
 border-radius:8px;
-
 padding:8px 4px;
-
 background:white;
-
 color:black;
-
 font-size:12px;
-
 font-weight:bold;
-
 }
 
 .favorite{
-
 width:35px;
-
 border:1px solid #333;
-
 border-radius:8px;
-
 background:#222;
-
 color:white;
-
 font-size:17px;
-
 }
 
-
-/* =========================
-   المشغل
-========================= */
-
 .player{
-
 display:none;
-
 background:#111;
-
 border:1px solid #292929;
-
 border-radius:15px;
-
 padding:12px;
-
 margin-bottom:20px;
-
 }
 
 .player video{
-
 width:100%;
-
 border-radius:11px;
-
 background:#000;
-
 }
 
 .player-title{
-
 font-size:18px;
-
 font-weight:bold;
-
 margin:10px 0;
-
 }
 
 .close-player{
-
 border:0;
-
 background:#292929;
-
 color:white;
-
 padding:9px 14px;
-
 border-radius:9px;
-
 }
-
-
-/* =========================
-   الفراغ
-========================= */
 
 .empty{
-
 display:none;
-
 text-align:center;
-
 color:#777;
-
 padding:50px 10px;
-
 }
 
-
-/* =========================
-   الكمبيوتر
-========================= */
+.loading{
+text-align:center;
+color:#888;
+padding:30px;
+}
 
 @media(min-width:700px){
 
 .hero{
-
-grid-template-columns:
-repeat(3,1fr);
-
+grid-template-columns:repeat(3,1fr);
 }
 
 .hero-card{
-
 height:430px;
-
 }
 
 .card{
-
 flex-basis:180px;
-
 }
 
 .poster{
-
 height:250px;
-
 }
 
 }
@@ -686,20 +400,13 @@ height:250px;
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     القائمة الجانبية
-========================= -->
 
 <div
 class="overlay"
 id="overlay"
 onclick="closeMenu()">
 </div>
-
 
 <div
 class="side-menu"
@@ -715,13 +422,11 @@ onclick="closeMenu()">
 ☰ Watch Enjoy
 </div>
 
-
 <button
 class="menu-item"
 onclick="showPage('home')">
 🏠 الرئيسية
 </button>
-
 
 <button
 class="menu-item"
@@ -729,13 +434,11 @@ onclick="showPage('movies')">
 🎬 الأفلام
 </button>
 
-
 <button
 class="menu-item"
 onclick="showPage('series')">
 📺 المسلسلات
 </button>
-
 
 <button
 class="menu-item"
@@ -743,13 +446,11 @@ onclick="showPage('anime')">
 🍥 الأنمي
 </button>
 
-
 <button
 class="menu-item"
 onclick="showPage('favorites')">
 ⭐ المفضلة
 </button>
-
 
 <button
 class="menu-item"
@@ -759,15 +460,9 @@ onclick="showPage('history')">
 
 </div>
 
-
-<!-- =========================
-     الهيدر
-========================= -->
-
 <header>
 
 <div class="top">
-
 
 <button
 class="menu-button"
@@ -775,11 +470,9 @@ onclick="openMenu()">
 ☰
 </button>
 
-
 <div class="logo">
 🎬 Watch Enjoy
 </div>
-
 
 <button
 class="search-button"
@@ -787,9 +480,7 @@ onclick="toggleSearch()">
 🔍
 </button>
 
-
 </div>
-
 
 <div
 class="search-box"
@@ -799,22 +490,14 @@ id="searchBox">
 class="search"
 id="search"
 type="search"
-placeholder="🔎 ابحث..."
+placeholder="🔎 ابحث عن فيلم أو مسلسل..."
 oninput="searchContent()">
 
 </div>
 
 </header>
 
-
-<!-- =========================
-     المحتوى
-========================= -->
-
 <main>
-
-
-<!-- المشغل -->
 
 <div
 class="player"
@@ -823,9 +506,7 @@ id="player">
 <div
 class="player-title"
 id="playerTitle">
-
 🎬 المشاهدة
-
 </div>
 
 <video
@@ -845,36 +526,29 @@ type="video/mp4">
 <button
 class="close-player"
 onclick="closePlayer()">
-
 ✕ إغلاق
-
 </button>
 
 </div>
-
-
-<!-- =========================
-     الرئيسية
-========================= -->
 
 <section
 class="page"
 id="homePage"
 style="display:block">
 
-
 <div class="hero-title">
-🔥 عرض حديث
+🔥 الأكثر شعبية
 </div>
-
 
 <div
 class="hero"
 id="hero">
+
+<div class="loading">
+جاري تحميل الأفلام...
 </div>
 
-
-<!-- الأفلام -->
+</div>
 
 <div class="section">
 
@@ -893,12 +567,14 @@ id="hero">
 <div
 class="horizontal"
 id="homeMovies">
+
+<div class="loading">
+جاري التحميل...
 </div>
 
 </div>
 
-
-<!-- المسلسلات -->
+</div>
 
 <div class="section">
 
@@ -917,12 +593,14 @@ id="homeMovies">
 <div
 class="horizontal"
 id="homeSeries">
+
+<div class="loading">
+جاري التحميل...
 </div>
 
 </div>
 
-
-<!-- الأنمي -->
+</div>
 
 <div class="section">
 
@@ -941,17 +619,16 @@ id="homeSeries">
 <div
 class="horizontal"
 id="homeAnime">
+
+<div class="loading">
+جاري التحميل...
 </div>
 
 </div>
 
+</div>
 
 </section>
-
-
-<!-- =========================
-     الأفلام
-========================= -->
 
 <section
 class="page"
@@ -972,11 +649,6 @@ id="allMovies">
 
 </section>
 
-
-<!-- =========================
-     المسلسلات
-========================= -->
-
 <section
 class="page"
 id="seriesPage">
@@ -996,11 +668,6 @@ id="allSeries">
 
 </section>
 
-
-<!-- =========================
-     الأنمي
-========================= -->
-
 <section
 class="page"
 id="animePage">
@@ -1019,11 +686,6 @@ id="allAnime">
 </div>
 
 </section>
-
-
-<!-- =========================
-     المفضلة
-========================= -->
 
 <section
 class="page"
@@ -1052,11 +714,6 @@ id="favoriteEmpty">
 
 </section>
 
-
-<!-- =========================
-     آخر ما شاهدت
-========================= -->
-
 <section
 class="page"
 id="historyPage">
@@ -1084,118 +741,175 @@ id="historyEmpty">
 
 </section>
 
-
 </main>
-
 
 <script>
 
-/* =========================
-   المحتوى
-========================= */
+let content = [];
 
-const content=[
-
-{
-id:1,
-title:"The General",
-type:"movie",
-year:"1926",
-icon:"🎬",
-description:"فيلم كلاسيكي.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:2,
-title:"فيلم تجريبي",
-type:"movie",
-year:"2026",
-icon:"🍿",
-description:"فيلم تجريبي.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:3,
-title:"فيلم أكشن",
-type:"movie",
-year:"2026",
-icon:"💥",
-description:"أكشن.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:4,
-title:"فيلم خيال علمي",
-type:"movie",
-year:"2026",
-icon:"🚀",
-description:"خيال علمي.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:5,
-title:"مسلسل تجريبي",
-type:"series",
-year:"2026",
-icon:"📺",
-description:"مسلسل تجريبي.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:6,
-title:"مسلسل كوميدي",
-type:"series",
-year:"2026",
-icon:"😂",
-description:"مسلسل كوميدي.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:7,
-title:"أنمي تجريبي",
-type:"anime",
-year:"2026",
-icon:"🍥",
-description:"أنمي تجريبي.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-},
-
-{
-id:8,
-title:"أنمي جديد",
-type:"anime",
-year:"2026",
-icon:"⚔️",
-description:"أنمي تجريبي آخر.",
-video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-}
-
-];
-
-
-/* =========================
-   التخزين
-========================= */
-
-let favorites=
+let favorites =
 JSON.parse(
 localStorage.getItem(
 "watchEnjoyFavorites"
-)||"[]"
+) || "[]"
 );
 
-let history=
+let history =
 JSON.parse(
 localStorage.getItem(
 "watchEnjoyHistory"
-)||"[]"
+) || "[]"
 );
+
+
+/* =========================
+   TMDB
+========================= */
+
+async function loadTMDB(endpoint, type, extraParams = {}) {
+
+try {
+
+const params =
+new URLSearchParams(extraParams);
+
+const query =
+params.toString()
+? `&${params.toString()}`
+: "";
+
+const response =
+await fetch(
+`/api?endpoint=${encodeURIComponent(endpoint)}${query}`
+);
+
+if(!response.ok){
+
+throw new Error(
+"TMDB request failed"
+);
+
+}
+
+const data =
+await response.json();
+
+return (data.results || []).map(item => ({
+
+id:item.id,
+
+title:
+item.title ||
+item.name ||
+"بدون عنوان",
+
+type:type,
+
+year:(
+item.release_date ||
+item.first_air_date ||
+""
+).slice(0,4),
+
+icon:
+type === "movie"
+? "🎬"
+: type === "series"
+? "📺"
+: "🍥",
+
+description:
+item.overview ||
+"لا يوجد وصف.",
+
+poster:
+item.poster_path
+? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+: "",
+
+backdrop:
+item.backdrop_path
+? `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`
+: "",
+
+video:""
+
+}));
+
+}
+
+catch(error){
+
+console.error(
+"TMDB Error:",
+error
+);
+
+return [];
+
+}
+
+}
+
+
+/* =========================
+   تحميل المحتوى
+========================= */
+
+async function loadContent(){
+
+document.getElementById(
+"homeMovies"
+).innerHTML =
+`<div class="loading">جاري تحميل الأفلام...</div>`;
+
+document.getElementById(
+"homeSeries"
+).innerHTML =
+`<div class="loading">جاري تحميل المسلسلات...</div>`;
+
+document.getElementById(
+"homeAnime"
+).innerHTML =
+`<div class="loading">جاري تحميل الأنمي...</div>`;
+
+
+const movies =
+await loadTMDB(
+"movie/popular",
+"movie"
+);
+
+
+const series =
+await loadTMDB(
+"tv/popular",
+"series"
+);
+
+
+const anime =
+await loadTMDB(
+"discover/tv",
+"anime",
+{
+with_genres:"16",
+with_original_language:"ja",
+sort_by:"popularity.desc"
+}
+);
+
+
+content = [
+...movies,
+...series,
+...anime
+];
+
+
+render();
+
+}
 
 
 /* =========================
@@ -1204,7 +918,7 @@ localStorage.getItem(
 
 function createCard(item){
 
-let fav=
+let fav =
 favorites.includes(item.id);
 
 return `
@@ -1215,7 +929,18 @@ data-id="${item.id}"
 data-type="${item.type}">
 
 <div class="poster">
-${item.icon}
+
+${
+item.poster
+?
+`<img
+src="${item.poster}"
+alt="${item.title}"
+loading="lazy">`
+:
+item.icon
+}
+
 </div>
 
 <div class="info">
@@ -1225,12 +950,17 @@ ${item.title}
 </div>
 
 <div class="meta">
-${item.type==="movie"
-?"فيلم"
-:item.type==="series"
-?"مسلسل"
-:"أنمي"}
- • ${item.year}
+
+${
+item.type === "movie"
+? "فيلم"
+: item.type === "series"
+? "مسلسل"
+: "أنمي"
+}
+
+${item.year ? " • " + item.year : ""}
+
 </div>
 
 <div class="actions">
@@ -1247,7 +977,7 @@ onclick="playMovie(${item.id})">
 class="favorite"
 onclick="toggleFavorite(${item.id})">
 
-${fav?"★":"☆"}
+${fav ? "★" : "☆"}
 
 </button>
 
@@ -1268,20 +998,33 @@ ${fav?"★":"☆"}
 
 function renderHero(){
 
-let hero=
-document.getElementById("hero");
+let hero =
+document.getElementById(
+"hero"
+);
 
-let latest=
-content.slice(0,3);
+let latest =
+content
+.filter(x => x.backdrop || x.poster)
+.slice(0,3);
 
-hero.innerHTML=
-latest.map(item=>`
+
+hero.innerHTML =
+latest.map(item => `
 
 <div class="hero-card">
 
 <div class="hero-poster">
 
-${item.icon}
+${
+item.backdrop || item.poster
+?
+`<img
+src="${item.backdrop || item.poster}"
+alt="${item.title}">`
+:
+item.icon
+}
 
 </div>
 
@@ -1302,20 +1045,6 @@ ${item.title}
 }
 
 
-/* تغيير العرض كل 5 ثواني */
-
-setInterval(function(){
-
-let first=
-content.shift();
-
-content.push(first);
-
-render();
-
-},5000);
-
-
 /* =========================
    العرض
 ========================= */
@@ -1327,54 +1056,54 @@ renderHero();
 
 document.getElementById(
 "homeMovies"
-).innerHTML=
+).innerHTML =
 content
-.filter(x=>x.type==="movie")
+.filter(x => x.type === "movie")
 .map(createCard)
 .join("");
 
 
 document.getElementById(
 "homeSeries"
-).innerHTML=
+).innerHTML =
 content
-.filter(x=>x.type==="series")
+.filter(x => x.type === "series")
 .map(createCard)
 .join("");
 
 
 document.getElementById(
 "homeAnime"
-).innerHTML=
+).innerHTML =
 content
-.filter(x=>x.type==="anime")
+.filter(x => x.type === "anime")
 .map(createCard)
 .join("");
 
 
 document.getElementById(
 "allMovies"
-).innerHTML=
+).innerHTML =
 content
-.filter(x=>x.type==="movie")
+.filter(x => x.type === "movie")
 .map(createCard)
 .join("");
 
 
 document.getElementById(
 "allSeries"
-).innerHTML=
+).innerHTML =
 content
-.filter(x=>x.type==="series")
+.filter(x => x.type === "series")
 .map(createCard)
 .join("");
 
 
 document.getElementById(
 "allAnime"
-).innerHTML=
+).innerHTML =
 content
-.filter(x=>x.type==="anime")
+.filter(x => x.type === "anime")
 .map(createCard)
 .join("");
 
@@ -1387,52 +1116,71 @@ renderHistory();
 
 
 /* =========================
-   تشغيل
+   المشاهدة
 ========================= */
 
 function playMovie(id){
 
-let item=
+let item =
 content.find(
-x=>x.id===id
+x => x.id === id
 );
 
 if(!item)return;
 
-let player=
-document.getElementById("player");
+let player =
+document.getElementById(
+"player"
+);
 
-let video=
-document.getElementById("video");
+let video =
+document.getElementById(
+"video"
+);
 
-let source=
-document.getElementById("videoSource");
+let source =
+document.getElementById(
+"videoSource"
+);
 
 
 document.getElementById(
 "playerTitle"
-).innerText=
-"🎬 "+item.title;
+).innerText =
+"🎬 " + item.title;
 
 
-source.src=
+if(item.video){
+
+source.src =
 item.video;
 
 video.load();
 
-player.style.display=
+player.style.display =
 "block";
+
+video.play().catch(
+()=>{}
+);
+
+}else{
+
+alert(
+"🎬 هذا العنوان تمت إضافته من TMDB، لكن رابط المشاهدة غير مضاف له بعد."
+);
+
+return;
+
+}
 
 
 addHistory(id);
-
 
 window.scrollTo({
 top:0,
 behavior:"smooth"
 });
-
-video.play().catch(()=>{});
 
 }
 
@@ -1443,14 +1191,16 @@ video.play().catch(()=>{});
 
 function closePlayer(){
 
-let video=
-document.getElementById("video");
+let video =
+document.getElementById(
+"video"
+);
 
 video.pause();
 
 document.getElementById(
 "player"
-).style.display=
+).style.display =
 "none";
 
 }
@@ -1462,11 +1212,13 @@ document.getElementById(
 
 function toggleFavorite(id){
 
-if(favorites.includes(id)){
+if(
+favorites.includes(id)
+){
 
-favorites=
+favorites =
 favorites.filter(
-x=>x!==id
+x => x !== id
 );
 
 }else{
@@ -1491,14 +1243,14 @@ render();
 
 function addHistory(id){
 
-history=
+history =
 history.filter(
-x=>x!==id
+x => x !== id
 );
 
 history.unshift(id);
 
-history=
+history =
 history.slice(0,20);
 
 localStorage.setItem(
@@ -1513,11 +1265,12 @@ renderHistory();
 
 function renderHistory(){
 
-let items=
+let items =
 history
 .map(
-id=>content.find(
-x=>x.id===id
+id =>
+content.find(
+x => x.id === id
 )
 )
 .filter(Boolean);
@@ -1525,16 +1278,18 @@ x=>x.id===id
 
 document.getElementById(
 "historyGrid"
-).innerHTML=
-items.map(createCard).join("");
+).innerHTML =
+items
+.map(createCard)
+.join("");
 
 
 document.getElementById(
 "historyEmpty"
-).style.display=
+).style.display =
 items.length
-?"none"
-:"block";
+? "none"
+: "block";
 
 }
 
@@ -1545,11 +1300,12 @@ items.length
 
 function renderFavorites(){
 
-let items=
+let items =
 favorites
 .map(
-id=>content.find(
-x=>x.id===id
+id =>
+content.find(
+x => x.id === id
 )
 )
 .filter(Boolean);
@@ -1557,16 +1313,18 @@ x=>x.id===id
 
 document.getElementById(
 "favoriteGrid"
-).innerHTML=
-items.map(createCard).join("");
+).innerHTML =
+items
+.map(createCard)
+.join("");
 
 
 document.getElementById(
 "favoriteEmpty"
-).style.display=
+).style.display =
 items.length
-?"none"
-:"block";
+? "none"
+: "block";
 
 }
 
@@ -1613,66 +1371,64 @@ function showPage(page){
 
 closeMenu();
 
-
 document
 .querySelectorAll(".page")
 .forEach(
-x=>x.style.display="none"
+x => x.style.display = "none"
 );
 
 
-if(page==="home"){
+if(page === "home"){
 
 document.getElementById(
 "homePage"
-).style.display="block";
+).style.display = "block";
 
 }
 
-if(page==="movies"){
+if(page === "movies"){
 
 document.getElementById(
 "moviesPage"
-).style.display="block";
+).style.display = "block";
 
 }
 
-if(page==="series"){
+if(page === "series"){
 
 document.getElementById(
 "seriesPage"
-).style.display="block";
+).style.display = "block";
 
 }
 
-if(page==="anime"){
+if(page === "anime"){
 
 document.getElementById(
 "animePage"
-).style.display="block";
+).style.display = "block";
 
 }
 
-if(page==="favorites"){
+if(page === "favorites"){
 
 document.getElementById(
 "favoritesPage"
-).style.display="block";
+).style.display = "block";
 
 renderFavorites();
 
 }
 
-if(page==="history"){
+if(page === "history"){
 
 document.getElementById(
 "historyPage"
-).style.display="block";
+).style.display = "block";
 
 renderHistory();
 
 }
-
 
 window.scrollTo({
 top:0,
@@ -1683,7 +1439,124 @@ behavior:"smooth"
 
 
 /* =========================
-   البحث
+   البحث عبر TMDB
+========================= */
+
+let searchTimer = null;
+
+async function searchContent(){
+
+let text =
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+
+if(!text){
+
+render();
+
+return;
+
+}
+
+
+clearTimeout(searchTimer);
+
+
+searchTimer =
+setTimeout(
+async () => {
+
+const movies =
+await loadTMDB(
+"search/movie",
+"movie",
+{
+query:text,
+language:"ar-SA"
+}
+);
+
+
+const series =
+await loadTMDB(
+"search/tv",
+"series",
+{
+query:text,
+language:"ar-SA"
+}
+);
+
+
+const results = [
+...movies,
+...series
+];
+
+
+document.getElementById(
+"homeMovies"
+).innerHTML = "";
+
+document.getElementById(
+"homeSeries"
+).innerHTML = "";
+
+document.getElementById(
+"homeAnime"
+).innerHTML = "";
+
+document.getElementById(
+"hero"
+).innerHTML = "";
+
+document.getElementById(
+"allMovies"
+).innerHTML =
+results
+.filter(x => x.type === "movie")
+.map(createCard)
+.join("");
+
+
+document.getElementById(
+"allSeries"
+).innerHTML =
+results
+.filter(x => x.type === "series")
+.map(createCard)
+.join("");
+
+
+document.getElementById(
+"allAnime"
+).innerHTML = "";
+
+
+if(!results.length){
+
+document.getElementById(
+"allMovies"
+).innerHTML =
+`<div class="loading">لم يتم العثور على نتائج.</div>`;
+
+}
+
+showPage("movies");
+
+},
+400
+);
+
+}
+
+
+/* =========================
+   فتح البحث
 ========================= */
 
 function toggleSearch(){
@@ -1709,40 +1582,11 @@ document
 }
 
 
-function searchContent(){
+/* =========================
+   التشغيل الأول
+========================= */
 
-let text=
-document
-.getElementById("search")
-.value
-.toLowerCase()
-.trim();
-
-
-document
-.querySelectorAll(".card")
-.forEach(card=>{
-
-let title=
-card
-.querySelector(".title")
-.innerText
-.toLowerCase();
-
-
-card.style.display=
-title.includes(text)
-?"block"
-:"none";
-
-});
-
-}
-
-
-/* تشغيل أولي */
-
-render();
+loadContent();
 
 </script>
 
