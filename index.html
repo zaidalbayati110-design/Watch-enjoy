@@ -10,58 +10,59 @@
 
 body{
 margin:0;
-background:#080808;
-color:white;
-font-family:Arial,sans-serif;
+background:#070707;
+color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
 }
 
 header{
-padding:25px 18px;
-background:linear-gradien(#171717,#080808);
-text-align:center;
+padding:28px 16px 20px;
+background:linear-gradient(180deg,#1b1b1b,#070707);
+text-align:center
 }
 
 .logo{
-font-size:32px;
-font-weight:bold;
+font-size:31px;
+font-weight:800
 }
 
 .subtitle{
-color:#aaa;
-margin:8px 0 18px;
+color:#999;
+margin:7px 0 18px
 }
 
 .search{
 width:100%;
-padding:14px;
-border-radius:14px;
+max-width:550px;
+padding:15px;
 border:1px solid #333;
-background:#181818;
+border-radius:14px;
+background:#151515;
 color:white;
 font-size:16px;
-outline:none;
+outline:none
 }
 
 main{
-padding:20px;
+padding:10px 16px 40px
 }
 
 h2{
 font-size:21px;
-margin:25px 0 14px;
+margin:25px 0 14px
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:13px;
+gap:13px
 }
 
 .card{
 background:#151515;
-border-radius:15px;
-overflow:hidden;
 border:1px solid #242424;
+border-radius:15px;
+overflow:hidden
 }
 
 .poster{
@@ -70,45 +71,75 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:55px;
-background:linear-gradient(135deg,#333,#111);
+background:linear-gradient(135deg,#353535,#101010)
 }
 
 .info{
-padding:13px;
+padding:13px
 }
 
 .title{
 font-size:17px;
-font-weight:bold;
+font-weight:700
 }
 
 .type{
 font-size:13px;
-color:#999;
-margin-top:5px;
+color:#888;
+margin-top:5px
+}
+
+.description{
+font-size:13px;
+color:#aaa;
+line-height:1.5;
+margin-top:8px
 }
 
 .watch{
 display:block;
 margin-top:12px;
-padding:10px;
-border-radius:9px;
+padding:11px;
+border-radius:10px;
 background:white;
 color:black;
 text-align:center;
 text-decoration:none;
-font-weight:bold;
+font-weight:700
+}
+
+.details{
+display:none;
+background:#111;
+padding:18px;
+border-radius:16px;
+margin:20px 0
+}
+
+.details h2{
+margin-top:0
+}
+
+.back{
+display:inline-block;
+margin-top:12px;
+padding:10px 16px;
+background:#292929;
+color:white;
+border-radius:10px;
+border:0;
+font-size:15px
 }
 
 footer{
 text-align:center;
-padding:30px;
 color:#666;
+padding:25px
 }
 
 @media(min-width:700px){
 .grid{
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(4,1fr)
 }
 }
 </style>
@@ -127,12 +158,32 @@ grid-template-columns:repeat(4,1fr);
 <input
 class="search"
 id="search"
+type="search"
 placeholder="🔎 ابحث عن فيلم أو مسلسل..."
-oninput="searchMovies()">
+oninput="searchContent()">
 
 </header>
 
 <main>
+
+<!-- صفحة التفاصيل -->
+
+<div class="details" id="details">
+
+<h2 id="detailsTitle"></h2>
+
+<div id="detailsType" class="type"></div>
+
+<p id="detailsDescription" class="description"></p>
+
+<button class="back" onclick="closeDetails()">
+← رجوع
+</button>
+
+</div>
+
+
+<!-- الأفلام -->
 
 <h2>🔥 الأفلام</h2>
 
@@ -140,8 +191,32 @@ oninput="searchMovies()">
 
 <div class="card">
 
-<="watch"
-href="https://www.youtube.com/
+<div class="poster">🎬</div>
+
+<div class="info">
+
+<div class="title">
+فيلم تجريبي
+</div>
+
+<div class="type">
+فيلم
+</div>
+
+<div class="description">
+فيلم تجريبي للموقع.
+</div>
+
+<a
+class="watch"
+href="#"
+onclick="showDetails(
+'فيلم تجريبي',
+'فيلم',
+'فيلم تجريبي للموقع.'
+);return false;">
+▶ التفاصيل
+</a>
 
 </div>
 </div>
@@ -149,28 +224,40 @@ href="https://www.youtube.com/
 
 <div class="card">
 
-<div class="poster">🎥</div>
+<div class="poster">🍿</div>
 
 <div class="info">
 
 <div class="title">
-فيلم جديد
+فيلم مجاني
 </div>
 
 <div class="type">
 فيلم
-<<a
+</div>
+
+<div class="description">
+محتوى مجاني أو مرخّص للمشاهدة.
+</div>
+
+<a
 class="watch"
-href="watch.html">
-▶ مشاهدة
+href="#"
+onclick="showDetails(
+'فيلم مجاني',
+'فيلم',
+'محتوى مجاني أو مرخّص للمشاهدة.'
+);return false;">
+▶ التفاصيل
 </a>
 
+</div>
+</div>
+
+</div>
 
 
-</div
-
-</div
-
+<!-- المسلسلات -->
 
 <h2>📺 المسلسلات</h2>
 
@@ -183,18 +270,26 @@ href="watch.html">
 <div class="info">
 
 <div class="title">
-مسلسل جديد
+مسلسل تجريبي
 </div>
 
 <div class="type">
 مسلسل
 </div>
 
+<div class="description">
+مسلسل تجريبي للموقع.
+</div>
+
 <a
 class="watch"
 href="#"
-onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
-▶ مشاهدة
+onclick="showDetails(
+'مسلسل تجريبي',
+'مسلسل',
+'مسلسل تجريبي للموقع.'
+);return false;">
+▶ التفاصيل
 </a>
 
 </div>
@@ -215,11 +310,19 @@ onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
 قائمة المشاهدة
 </div>
 
+<div class="description">
+قسم مخصص للمحتوى الذي تختاره.
+</div>
+
 <a
 class="watch"
 href="#"
-onclick="alert('أضف رابط المشاهدة الرسمي هنا')">
-▶ مشاهدة
+onclick="showDetails(
+'المفضلة',
+'قائمة المشاهدة',
+'قسم مخصص للمحتوى الذي تختاره.'
+);return false;">
+▶ التفاصيل
 </a>
 
 </div>
@@ -236,28 +339,46 @@ Watch Enjoy © 2026
 
 <script>
 
-function searchMovies(){
+function showDetails(title,type,description){
 
-let text=document
-.getElementById("search")
-.value
-.toLowerCase();
+document.getElementById("detailsTitle").innerText =
+"🎬 " + title;
 
-let cards=document
-.querySelectorAll(".card");
+document.getElementById("detailsType").innerText =
+type;
 
-cards.forEach(function(card){
+document.getElementById("detailsDescription").innerText =
+description;
 
-let title=card
-.querySelector(".title")
-.innerText
-.toLowerCase();
+document.getElementById("details").style.display =
+"block";
 
-if(title.includes(text)){
-card.style.display="block";
-}else{
-card.style.display="none";
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
+
+function closeDetails(){
+
+document.getElementById("details").style.display =
+"none";
+
+}
+
+function searchContent(){
+
+let text =
+document.getElementById("search").value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(function(card){
+
+let title =
+card.querySelector(".title").innerText.toLowerCase();
+
+card.style.display =
+title.includes(text) ? "block" : "none";
 
 });
 
