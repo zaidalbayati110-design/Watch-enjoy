@@ -33,17 +33,15 @@ export async function onRequest(context) {
   }
 
   const params = new URLSearchParams(url.searchParams);
+
   params.delete("endpoint");
+
+  params.set("api_key", context.env.TMDB_API_KEY);
 
   const apiUrl =
     `https://api.themoviedb.org/3/${cleanEndpoint}?${params.toString()}`;
 
-  const response = await fetch(apiUrl, {
-    headers: {
-      Authorization: `Bearer ${context.env.TMDB_TOKEN}`,
-      accept: "application/json"
-    }
-  });
+  const response = await fetch(apiUrl);
 
   const data = await response.text();
 
