@@ -8,16 +8,31 @@
 <title>Watch Enjoy</title>
 
 <style>
+
 *{
 box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
 margin:0;
 background:
-radial-gradient(circle at top,#292929 0,#101010 38%,#050505 100%);
+radial-gradient(
+circle at top,
+#292929 0%,
+#101010 38%,
+#050505 100%
+);
 color:#fff;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Arial,
+sans-serif;
 }
 
 button{
@@ -25,11 +40,19 @@ font-family:inherit;
 cursor:pointer;
 }
 
+button:active{
+transform:scale(.97);
+}
+
+/* =========================
+ HEADER
+========================= */
+
 header{
 position:sticky;
 top:0;
 z-index:50;
-background:rgba(5,5,5,.95);
+background:rgba(5,5,5,.96);
 backdrop-filter:blur(18px);
 border-bottom:1px solid #252525;
 padding:12px 15px;
@@ -46,11 +69,13 @@ position:relative;
 .logo{
 font-size:25px;
 font-weight:900;
+letter-spacing:.2px;
 }
 
 .menu-btn,
 .search-btn{
 position:absolute;
+top:2px;
 width:43px;
 height:43px;
 border:1px solid #333;
@@ -60,8 +85,13 @@ color:#fff;
 font-size:20px;
 }
 
-.menu-btn{right:0}
-.search-btn{left:0}
+.menu-btn{
+right:0;
+}
+
+.search-btn{
+left:0;
+}
 
 .search-box{
 display:none;
@@ -74,21 +104,25 @@ display:block;
 
 .search{
 width:100%;
-height:45px;
+height:46px;
 border:1px solid #333;
 border-radius:12px;
 background:#151515;
-color:white;
+color:#fff;
 padding:0 14px;
 font-size:16px;
 outline:none;
 }
 
+/* =========================
+ MENU
+========================= */
+
 .overlay{
 display:none;
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.72);
 z-index:80;
 }
 
@@ -99,24 +133,19 @@ display:block;
 .side-menu{
 position:fixed;
 top:0;
-right:-290px;
-width:280px;
+right:-300px;
+width:285px;
 height:100vh;
 background:#111;
 z-index:100;
 padding:25px 17px;
 transition:.3s;
-box-shadow:-15px 0 40px rgba(0,0,0,.6);
+box-shadow:-15px 0 40px rgba(0,0,0,.7);
+overflow-y:auto;
 }
 
 .side-menu.open{
 right:0;
-}
-
-.menu-title{
-font-size:22px;
-font-weight:900;
-margin:5px 0 25px;
 }
 
 .close-menu{
@@ -128,8 +157,14 @@ height:40px;
 border:0;
 border-radius:10px;
 background:#292929;
-color:white;
+color:#fff;
 font-size:22px;
+}
+
+.menu-title{
+font-size:22px;
+font-weight:900;
+margin:6px 0 25px;
 }
 
 .menu-item{
@@ -139,15 +174,23 @@ margin-bottom:9px;
 border:1px solid #292929;
 border-radius:12px;
 background:#191919;
-color:white;
+color:#fff;
 text-align:right;
 font-size:15px;
 }
 
+.menu-item:hover{
+background:#242424;
+}
+
+/* =========================
+ MAIN
+========================= */
+
 main{
-max-width:1350px;
+max-width:1400px;
 margin:auto;
-padding:15px 15px 60px;
+padding:15px 15px 70px;
 }
 
 .page{
@@ -158,7 +201,9 @@ display:none;
 display:block;
 }
 
-/* HERO */
+/* =========================
+ HERO
+========================= */
 
 .hero-title{
 font-size:21px;
@@ -179,20 +224,23 @@ border-radius:16px;
 overflow:hidden;
 background:#171717;
 border:1px solid #292929;
+cursor:pointer;
 }
 
 .hero-card img{
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 }
 
 .hero-gradient{
 position:absolute;
 inset:0;
-background:linear-gradient(
-transparent 35%,
-rgba(0,0,0,.95)
+background:
+linear-gradient(
+transparent 30%,
+rgba(0,0,0,.96)
 );
 }
 
@@ -218,7 +266,9 @@ color:#aaa;
 margin-top:5px;
 }
 
-/* SECTIONS */
+/* =========================
+ SECTION
+========================= */
 
 .section{
 margin-top:30px;
@@ -241,7 +291,9 @@ font-size:11px;
 color:#777;
 }
 
-/* CATEGORIES */
+/* =========================
+ CATEGORIES
+========================= */
 
 .category-row{
 display:flex;
@@ -249,6 +301,7 @@ gap:8px;
 overflow-x:auto;
 scrollbar-width:none;
 margin-bottom:15px;
+padding-bottom:3px;
 }
 
 .category-row::-webkit-scrollbar{
@@ -257,11 +310,12 @@ display:none;
 
 .category-btn{
 flex:0 0 auto;
-padding:9px 14px;
+padding:10px 15px;
 border:1px solid #333;
 border-radius:10px;
 background:#181818;
 color:#ddd;
+font-size:13px;
 }
 
 .category-btn.active{
@@ -269,14 +323,16 @@ background:#fff;
 color:#000;
 }
 
-/* CARDS */
+/* =========================
+ CARDS
+========================= */
 
 .horizontal{
 display:flex;
 gap:11px;
 overflow-x:auto;
 scrollbar-width:none;
-padding-bottom:6px;
+padding-bottom:7px;
 }
 
 .horizontal::-webkit-scrollbar{
@@ -289,11 +345,13 @@ background:#151515;
 border:1px solid #282828;
 border-radius:13px;
 overflow:hidden;
+cursor:pointer;
 }
 
 .poster{
 height:195px;
 background:#202020;
+position:relative;
 }
 
 .poster img{
@@ -319,6 +377,7 @@ text-overflow:ellipsis;
 font-size:10px;
 color:#888;
 margin-top:5px;
+min-height:15px;
 }
 
 .card-buttons{
@@ -332,10 +391,10 @@ flex:1;
 border:0;
 border-radius:7px;
 padding:7px 3px;
-background:white;
-color:black;
+background:#fff;
+color:#000;
 font-size:11px;
-font-weight:800;
+font-weight:900;
 }
 
 .fav-small{
@@ -347,7 +406,9 @@ color:#fff;
 font-size:16px;
 }
 
-/* DETAILS */
+/* =========================
+ DETAILS
+========================= */
 
 .details{
 display:none;
@@ -363,7 +424,7 @@ display:block;
 }
 
 .details-backdrop{
-height:310px;
+height:330px;
 position:relative;
 }
 
@@ -377,7 +438,8 @@ object-fit:cover;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
+background:
+linear-gradient(
 transparent,
 #080808
 );
@@ -387,18 +449,18 @@ transparent,
 position:absolute;
 right:15px;
 top:15px;
-z-index:3;
-width:42px;
-height:42px;
+z-index:5;
+width:43px;
+height:43px;
 border:1px solid #555;
 border-radius:12px;
-background:rgba(0,0,0,.7);
-color:white;
-font-size:22px;
+background:rgba(0,0,0,.75);
+color:#fff;
+font-size:23px;
 }
 
 .details-content{
-max-width:950px;
+max-width:1000px;
 margin:-100px auto 0;
 position:relative;
 z-index:2;
@@ -406,7 +468,7 @@ padding:20px;
 }
 
 .details-box{
-background:rgba(20,20,20,.97);
+background:rgba(20,20,20,.98);
 border:1px solid #292929;
 border-radius:20px;
 padding:18px;
@@ -430,7 +492,7 @@ object-fit:cover;
 }
 
 .details-title{
-font-size:25px;
+font-size:26px;
 font-weight:900;
 margin-bottom:10px;
 }
@@ -447,19 +509,8 @@ font-size:14px;
 line-height:1.9;
 }
 
-.watch-source{
-margin-top:18px;
-padding:13px 20px;
-border:0;
-border-radius:11px;
-background:#fff;
-color:#000;
-font-weight:900;
-font-size:14px;
-}
-
 .providers{
-margin-top:18px;
+margin-top:20px;
 }
 
 .providers-title{
@@ -488,46 +539,22 @@ font-size:12px;
 width:30px;
 height:30px;
 border-radius:7px;
+object-fit:cover;
 }
 
-/* PLAYER */
-
-.player{
-display:none;
-margin:25px 0;
-background:#111;
-border:1px solid #292929;
-border-radius:18px;
-padding:14px;
-}
-
-.player.show{
-display:block;
-}
-
-.player-title{
-font-size:18px;
-font-weight:900;
-margin-bottom:12px;
-}
-
-video{
-width:100%;
-max-height:70vh;
-background:#000;
-border-radius:12px;
-}
-
-.close-player{
-margin-top:12px;
-padding:9px 15px;
+.legal-watch{
+margin-top:14px;
+padding:12px 18px;
 border:0;
-border-radius:9px;
-background:#292929;
-color:white;
+border-radius:10px;
+background:#fff;
+color:#000;
+font-weight:900;
 }
 
-/* SEASONS */
+/* =========================
+ SEASONS
+========================= */
 
 .seasons{
 margin-top:25px;
@@ -543,9 +570,11 @@ margin-bottom:12px;
 display:flex;
 gap:8px;
 overflow-x:auto;
+padding-bottom:5px;
 }
 
 .season-btn{
+flex:0 0 auto;
 padding:10px 14px;
 border:1px solid #333;
 border-radius:10px;
@@ -560,7 +589,8 @@ color:#000;
 
 .episodes{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+grid-template-columns:
+repeat(auto-fill,minmax(220px,1fr));
 gap:10px;
 margin-top:15px;
 }
@@ -575,6 +605,7 @@ padding:12px;
 .episode-title{
 font-weight:800;
 font-size:14px;
+line-height:1.6;
 }
 
 .episode-meta{
@@ -594,7 +625,48 @@ color:#000;
 font-weight:800;
 }
 
-/* STATUS */
+/* =========================
+ PLAYER
+========================= */
+
+.player{
+display:none;
+margin:20px 0 25px;
+background:#111;
+border:1px solid #292929;
+border-radius:18px;
+padding:14px;
+}
+
+.player.show{
+display:block;
+}
+
+.player-title{
+font-size:18px;
+font-weight:900;
+margin-bottom:12px;
+}
+
+#videoPlayer{
+width:100%;
+max-height:70vh;
+background:#000;
+border-radius:12px;
+}
+
+.close-player{
+margin-top:12px;
+padding:9px 15px;
+border:0;
+border-radius:9px;
+background:#292929;
+color:#fff;
+}
+
+/* =========================
+ LOADING / EMPTY
+========================= */
 
 .loading{
 padding:30px;
@@ -609,14 +681,18 @@ color:#777;
 }
 
 .tmdb-note{
-margin-top:35px;
-padding:14px;
+margin-top:40px;
+padding:15px;
 border:1px solid #292929;
 border-radius:12px;
-color:#888;
+color:#777;
 font-size:11px;
-line-height:1.7;
+line-height:1.8;
 }
+
+/* =========================
+ MOBILE
+========================= */
 
 @media(max-width:900px){
 
@@ -631,20 +707,20 @@ display:none;
 }
 
 .hero-card{
-flex:0 0 150px;
-height:230px;
+flex:0 0 155px;
+height:235px;
 }
 
 }
 
 @media(max-width:600px){
 
-.logo{
-font-size:22px;
-}
-
 main{
 padding:12px 10px 50px;
+}
+
+.logo{
+font-size:22px;
 }
 
 .card{
@@ -653,6 +729,14 @@ flex-basis:125px;
 
 .poster{
 height:175px;
+}
+
+.details-backdrop{
+height:260px;
+}
+
+.details-content{
+padding:12px;
 }
 
 .details-box{
@@ -669,6 +753,10 @@ margin:auto;
 font-size:21px;
 }
 
+.episodes{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -678,7 +766,9 @@ font-size:21px;
 <body>
 
 
-<!-- MENU -->
+<!-- =========================
+ MENU
+========================= -->
 
 <div
 class="overlay"
@@ -746,7 +836,9 @@ onclick="showPage('history')">
 </div>
 
 
-<!-- HEADER -->
+<!-- =========================
+ HEADER
+========================= -->
 
 <header>
 
@@ -790,7 +882,9 @@ oninput="searchContent()">
 <main>
 
 
-<!-- PLAYER -->
+<!-- =========================
+ PLAYER
+========================= -->
 
 <div
 class="player"
@@ -799,7 +893,7 @@ id="player">
 <div
 class="player-title"
 id="playerTitle">
-المشاهدة
+▶ المشاهدة
 </div>
 
 <video
@@ -823,14 +917,16 @@ onclick="closePlayer()">
 </div>
 
 
-<!-- HOME -->
+<!-- =========================
+ HOME
+========================= -->
 
 <section
 class="page active"
 id="homePage">
 
 <div class="hero-title">
-🔥 الأحدث
+🔥 أحدث الإضافات
 </div>
 
 <div
@@ -838,7 +934,7 @@ class="hero"
 id="hero">
 
 <div class="loading">
-جاري التحميل...
+جاري تحميل المحتوى...
 </div>
 
 </div>
@@ -847,8 +943,11 @@ id="hero">
 <div class="section">
 
 <div class="section-header">
+
 <h2>🎬 الأفلام</h2>
+
 <span>سحب ←</span>
+
 </div>
 
 <div
@@ -862,8 +961,11 @@ id="homeMovies">
 <div class="section">
 
 <div class="section-header">
+
 <h2>📺 المسلسلات</h2>
+
 <span>سحب ←</span>
+
 </div>
 
 <div
@@ -877,8 +979,11 @@ id="homeSeries">
 <div class="section">
 
 <div class="section-header">
+
 <h2>🍥 الأنمي</h2>
+
 <span>سحب ←</span>
+
 </div>
 
 <div
@@ -892,8 +997,11 @@ id="homeAnime">
 <div class="section">
 
 <div class="section-header">
+
 <h2>🎨 الكارتون</h2>
+
 <span>سحب ←</span>
+
 </div>
 
 <div
@@ -906,15 +1014,20 @@ id="homeCartoon">
 </section>
 
 
-<!-- MOVIES -->
+<!-- =========================
+ MOVIES
+========================= -->
 
 <section
 class="page"
 id="moviesPage">
 
 <div class="section-header">
+
 <h2>🎬 الأفلام</h2>
+
 </div>
+
 
 <div class="category-row">
 
@@ -950,23 +1063,34 @@ onclick="loadMovieCategory('arabic',this)">
 
 </div>
 
+
 <div
 class="horizontal"
 id="moviesGrid">
+
+<div class="loading">
+جاري تحميل الأفلام...
+</div>
+
 </div>
 
 </section>
 
 
-<!-- SERIES -->
+<!-- =========================
+ SERIES
+========================= -->
 
 <section
 class="page"
 id="seriesPage">
 
 <div class="section-header">
+
 <h2>📺 المسلسلات</h2>
+
 </div>
+
 
 <div class="category-row">
 
@@ -1002,58 +1126,86 @@ onclick="loadSeriesCategory('arabic',this)">
 
 </div>
 
+
 <div
 class="horizontal"
 id="seriesGrid">
+
+<div class="loading">
+جاري تحميل المسلسلات...
+</div>
+
 </div>
 
 </section>
 
 
-<!-- ANIME -->
+<!-- =========================
+ ANIME
+========================= -->
 
 <section
 class="page"
 id="animePage">
 
 <div class="section-header">
+
 <h2>🍥 الأنمي</h2>
+
 </div>
 
 <div
 class="horizontal"
 id="animeGrid">
+
+<div class="loading">
+جاري تحميل الأنمي...
+</div>
+
 </div>
 
 </section>
 
 
-<!-- CARTOON -->
+<!-- =========================
+ CARTOON
+========================= -->
 
 <section
 class="page"
 id="cartoonPage">
 
 <div class="section-header">
+
 <h2>🎨 الكارتون</h2>
+
 </div>
 
 <div
 class="horizontal"
 id="cartoonGrid">
+
+<div class="loading">
+جاري تحميل الكارتون...
+</div>
+
 </div>
 
 </section>
 
 
-<!-- FAVORITES -->
+<!-- =========================
+ FAVORITES
+========================= -->
 
 <section
 class="page"
 id="favoritesPage">
 
 <div class="section-header">
+
 <h2>⭐ المفضلة</h2>
+
 </div>
 
 <div
@@ -1064,20 +1216,26 @@ id="favoriteGrid">
 <div
 class="empty"
 id="favoriteEmpty">
+
 ⭐ لا توجد عناصر في المفضلة.
+
 </div>
 
 </section>
 
 
-<!-- HISTORY -->
+<!-- =========================
+ HISTORY
+========================= -->
 
 <section
 class="page"
 id="historyPage">
 
 <div class="section-header">
+
 <h2>🕘 آخر ما شاهدت</h2>
+
 </div>
 
 <div
@@ -1088,7 +1246,9 @@ id="historyGrid">
 <div
 class="empty"
 id="historyEmpty">
+
 🕘 لا يوجد سجل مشاهدة.
+
 </div>
 
 </section>
@@ -1096,16 +1256,20 @@ id="historyEmpty">
 
 <div class="tmdb-note">
 
+Watch Enjoy يستخدم بيانات TMDB لعرض معلومات الأفلام والمسلسلات.
+
 This product uses the TMDB API but is not endorsed or certified by TMDB.
 
-بيانات التوفر مأخوذة من مزودي المشاهدة عبر TMDB/JustWatch.
+معلومات مزودي المشاهدة تستخدم فقط لمعرفة الخدمات القانونية المتاحة.
 
 </div>
 
 </main>
 
 
-<!-- DETAILS -->
+<!-- =========================
+ DETAILS
+========================= -->
 
 <div
 class="details"
@@ -1164,7 +1328,7 @@ class="providers"
 id="providers">
 
 <div class="providers-title">
-▶ متوفر للمشاهدة عبر
+▶ مصادر المشاهدة القانونية
 </div>
 
 <div
@@ -1172,7 +1336,7 @@ class="provider-list"
 id="providerList">
 
 <div class="loading">
-جاري البحث عن المصادر القانونية...
+جاري البحث...
 </div>
 
 </div>
@@ -1213,23 +1377,33 @@ id="episodeList">
 <script>
 
 /* =====================================================
-   إعدادات
+   إعدادات عامة
 ===================================================== */
 
 const API_BASE="/api";
 
+/*
+العراق
+*/
 const REGION="IQ";
+
 
 let content=[];
 
+
 let favorites=
 JSON.parse(
-localStorage.getItem("watchEnjoyFavorites")||"[]"
+localStorage.getItem(
+"watchEnjoyFavorites"
+)||"[]"
 );
+
 
 let history=
 JSON.parse(
-localStorage.getItem("watchEnjoyHistory")||"[]"
+localStorage.getItem(
+"watchEnjoyHistory"
+)||"[]"
 );
 
 
@@ -1237,21 +1411,41 @@ localStorage.getItem("watchEnjoyHistory")||"[]"
    API
 ===================================================== */
 
-async function api(endpoint,params={}){
+async function api(
+endpoint,
+params={}
+){
 
 const query=
-new URLSearchParams(params).toString();
+new URLSearchParams(
+params
+).toString();
+
 
 const url=
 `${API_BASE}?endpoint=${encodeURIComponent(endpoint)}`
 +
-(query?`&${query}`:"");
+(
+query
+?
+`&${query}`
+:
+""
+);
+
 
 const response=
 await fetch(url);
 
-if(!response.ok)
-throw new Error("API error");
+
+if(!response.ok){
+
+throw new Error(
+"API request failed"
+);
+
+}
+
 
 return response.json();
 
@@ -1259,7 +1453,66 @@ return response.json();
 
 
 /* =====================================================
-   TMDB LIST
+   تحويل بيانات TMDB
+===================================================== */
+
+function normalizeItem(
+item,
+type
+){
+
+return{
+
+id:item.id,
+
+title:
+item.title||
+item.name||
+"بدون عنوان",
+
+type:type,
+
+year:
+(
+item.release_date||
+item.first_air_date||
+""
+).slice(0,4),
+
+description:
+item.overview||
+"لا يوجد وصف متوفر.",
+
+poster:
+item.poster_path
+?
+`https://image.tmdb.org/t/p/w500${item.poster_path}`
+:
+"",
+
+backdrop:
+item.backdrop_path
+?
+`https://image.tmdb.org/t/p/w1280${item.backdrop_path}`
+:
+"",
+
+rating:
+item.vote_average
+?
+Number(
+item.vote_average
+).toFixed(1)
+:
+""
+
+};
+
+}
+
+
+/* =====================================================
+   تحميل قائمة
 ===================================================== */
 
 async function loadList(
@@ -1271,52 +1524,27 @@ params={}
 try{
 
 const data=
-await api(endpoint,params);
+await api(
+endpoint,
+params
+);
 
-return (data.results||[]).map(item=>({
+return(
+data.results||[]
+)
+.map(
+item=>normalizeItem(
+item,
+type
+)
+);
 
-id:item.id,
+}catch(error){
 
-title:
-item.title||
-item.name||
-"بدون عنوان",
-
-type:type,
-
-year:(
-item.release_date||
-item.first_air_date||
-""
-).slice(0,4),
-
-description:
-item.overview||
-"لا يوجد وصف.",
-
-poster:
-item.poster_path
-?
-`https://image.tmdb.org/t/p/w500${item.poster_path}`
-:"",
-
-backdrop:
-item.backdrop_path
-?
-`https://image.tmdb.org/t/p/w1280${item.backdrop_path}`
-:"",
-
-rating:
-item.vote_average
-?
-Number(item.vote_average).toFixed(1)
-:""
-
-}));
-
-}catch(e){
-
-console.error(e);
+console.error(
+endpoint,
+error
+);
 
 return[];
 
@@ -1326,55 +1554,121 @@ return[];
 
 
 /* =====================================================
-   تحميل المحتوى
+   تحميل صفحات كثيرة
+===================================================== */
+
+/*
+20 صفحة × 20 عنوان تقريبًا
+= حوالي 400 لكل نوع.
+
+لكننا نأخذ في النهاية
+1000 عنوان إجمالًا.
+*/
+
+async function loadMany(
+endpoint,
+type,
+pages=10
+){
+
+let all=[];
+
+
+for(
+let page=1;
+page<=pages;
+page++
+){
+
+try{
+
+const results=
+await loadList(
+endpoint,
+type,
+{
+language:"ar-SA",
+sort_by:"popularity.desc",
+page:page
+}
+);
+
+all.push(...results);
+
+}catch(e){
+
+console.error(e);
+
+}
+
+}
+
+
+return all;
+
+}
+
+
+/* =====================================================
+   تحميل 1000 عنوان
 ===================================================== */
 
 async function loadContent(){
 
+showLoading();
+
+
+/*
+250 فيلم
+*/
+
 const movies=
-await loadList(
-"movie/popular",
+await loadMany(
+"discover/movie",
 "movie",
-{
-language:"ar-SA",
-page:"1"
-}
+13
 );
+
+
+/*
+250 مسلسل
+*/
 
 const series=
-await loadList(
-"tv/popular",
+await loadMany(
+"discover/tv",
 "series",
-{
-language:"ar-SA",
-page:"1"
-}
+13
 );
+
+
+/*
+250 أنمي تقريبًا
+*/
 
 const anime=
-await loadList(
+await loadMany(
 "discover/tv",
 "anime",
-{
-language:"ar-SA",
-with_genres:"16",
-with_original_language:"ja",
-sort_by:"popularity.desc",
-page:"1"
-}
+13
 );
 
+
+/*
+250 كارتون تقريبًا
+*/
+
 const cartoon=
-await loadList(
+await loadMany(
 "discover/tv",
 "cartoon",
-{
-language:"ar-SA",
-with_genres:"16",
-sort_by:"popularity.desc",
-page:"2"
-}
+13
 );
+
+
+/*
+دمج المحتوى
+*/
 
 content=[
 ...movies,
@@ -1382,6 +1676,59 @@ content=[
 ...anime,
 ...cartoon
 ];
+
+
+/*
+إزالة التكرار
+*/
+
+const unique=
+new Map();
+
+
+content.forEach(item=>{
+
+const key=
+`${item.type}-${item.id}`;
+
+if(!unique.has(key)){
+
+unique.set(
+key,
+item
+);
+
+}
+
+});
+
+
+content=
+Array.from(
+unique.values()
+);
+
+
+/*
+حد أقصى 1000
+*/
+
+content=
+content.slice(
+0,
+1000
+);
+
+
+console.log(
+"Loaded:",
+content.length
+);
+
+
+/*
+عرض المحتوى
+*/
 
 renderHome();
 
@@ -1391,22 +1738,55 @@ renderAll();
 
 
 /* =====================================================
-   الرئيسية
+   شاشة التحميل
+===================================================== */
+
+function showLoading(){
+
+document.getElementById(
+"hero"
+).innerHTML=
+`
+<div class="loading">
+جاري تحميل المحتوى...
+</div>
+`;
+
+}
+
+
+/* =====================================================
+   الصفحة الرئيسية
 ===================================================== */
 
 function renderHome(){
 
 const hero=
 content
-.filter(x=>x.poster)
-.slice(0,5);
+.filter(
+x=>x.poster
+)
+.slice(
+0,
+5
+);
 
-document.getElementById("hero").innerHTML=
-hero.map(item=>`
+
+document.getElementById(
+"hero"
+).innerHTML=
+hero
+.map(
+item=>`
 
 <div
 class="hero-card"
-onclick="openDetails(${item.id},'${item.type}')">
+onclick="
+openDetails(
+${item.id},
+'${item.type}'
+)
+">
 
 <img
 src="${item.backdrop||item.poster}"
@@ -1417,49 +1797,94 @@ alt="${escapeHtml(item.title)}">
 <div class="hero-info">
 
 <div class="hero-name">
+
 ${escapeHtml(item.title)}
+
 </div>
 
 <div class="hero-meta">
+
 ${typeName(item.type)}
-${item.year?" • "+item.year:""}
-</div>
+
+${item.year
+?
+" • "+item.year
+:
+""}
+
+${item.rating
+?
+" • ⭐ "+item.rating
+:
+""}
 
 </div>
 
 </div>
 
-`).join("");
+</div>
+
+`
+)
+.join("");
 
 
-document.getElementById("homeMovies").innerHTML=
+document.getElementById(
+"homeMovies"
+).innerHTML=
 content
-.filter(x=>x.type==="movie")
-.slice(0,15)
+.filter(
+x=>x.type==="movie"
+)
+.slice(
+0,
+20
+)
 .map(card)
 .join("");
 
 
-document.getElementById("homeSeries").innerHTML=
+document.getElementById(
+"homeSeries"
+).innerHTML=
 content
-.filter(x=>x.type==="series")
-.slice(0,15)
+.filter(
+x=>x.type==="series"
+)
+.slice(
+0,
+20
+)
 .map(card)
 .join("");
 
 
-document.getElementById("homeAnime").innerHTML=
+document.getElementById(
+"homeAnime"
+).innerHTML=
 content
-.filter(x=>x.type==="anime")
-.slice(0,15)
+.filter(
+x=>x.type==="anime"
+)
+.slice(
+0,
+20
+)
 .map(card)
 .join("");
 
 
-document.getElementById("homeCartoon").innerHTML=
+document.getElementById(
+"homeCartoon"
+).innerHTML=
 content
-.filter(x=>x.type==="cartoon")
-.slice(0,15)
+.filter(
+x=>x.type==="cartoon"
+)
+.slice(
+0,
+20
+)
 .map(card)
 .join("");
 
@@ -1475,59 +1900,92 @@ function card(item){
 const key=
 `${item.type}-${item.id}`;
 
+
 const fav=
 favorites.includes(key);
+
 
 return`
 
 <div
 class="card"
-onclick="openDetails(${item.id},'${item.type}')">
+onclick="
+openDetails(
+${item.id},
+'${item.type}'
+)
+">
 
 <div class="poster">
 
 ${
 item.poster
 ?
-`<img
+`
+<img
 src="${item.poster}"
 alt="${escapeHtml(item.title)}"
-loading="lazy">`
+loading="lazy">
+`
 :
 "🎬"
 }
 
 </div>
 
+
 <div class="card-info">
 
 <div class="card-title">
+
 ${escapeHtml(item.title)}
+
 </div>
+
 
 <div class="card-meta">
 
 ${typeName(item.type)}
 
-${item.year?" • "+item.year:""}
+${item.year
+?
+" • "+item.year
+:
+""}
 
-${item.rating?" • ⭐ "+item.rating:""}
+${
+item.rating
+?
+" • ⭐ "+item.rating
+:
+""}
 
 </div>
+
 
 <div class="card-buttons">
 
 <button
 class="watch-small"
-onclick="event.stopPropagation();openDetails(${item.id},'${item.type}')">
+onclick="
+event.stopPropagation();
+openDetails(
+${item.id},
+'${item.type}'
+)
+">
 
 ▶ مشاهدة
 
 </button>
 
+
 <button
 class="fav-small"
-onclick="event.stopPropagation();toggleFavorite('${key}')">
+onclick="
+event.stopPropagation();
+toggleFavorite('${key}')
+">
 
 ${fav?"★":"☆"}
 
@@ -1545,146 +2003,67 @@ ${fav?"★":"☆"}
 
 
 /* =====================================================
-   التصنيفات
-===================================================== */
-
-async function loadMovieCategory(
-category,
-button
-){
-
-document
-.querySelectorAll("#moviesPage .category-btn")
-.forEach(x=>x.classList.remove("active"));
-
-button.classList.add("active");
-
-let params={
-language:"ar-SA",
-sort_by:"popularity.desc",
-page:"1"
-};
-
-if(category==="foreign")
-params.with_original_language="en";
-
-if(category==="chinese")
-params.with_original_language="zh";
-
-if(category==="kdrama")
-params.with_original_language="ko";
-
-if(category==="arabic")
-params.with_original_language="ar";
-
-let results;
-
-if(category==="latest"){
-
-results=
-content.filter(x=>x.type==="movie");
-
-}else{
-
-results=
-await loadList(
-"discover/movie",
-"movie",
-params
-);
-
-}
-
-document.getElementById("moviesGrid").innerHTML=
-results.map(card).join("");
-
-}
-
-
-async function loadSeriesCategory(
-category,
-button
-){
-
-document
-.querySelectorAll("#seriesPage .category-btn")
-.forEach(x=>x.classList.remove("active"));
-
-button.classList.add("active");
-
-let params={
-language:"ar-SA",
-sort_by:"popularity.desc",
-page:"1"
-};
-
-if(category==="foreign")
-params.with_original_language="en";
-
-if(category==="chinese")
-params.with_original_language="zh";
-
-if(category==="kdrama")
-params.with_original_language="ko";
-
-if(category==="arabic")
-params.with_original_language="ar";
-
-let results;
-
-if(category==="latest"){
-
-results=
-content.filter(x=>x.type==="series");
-
-}else{
-
-results=
-await loadList(
-"discover/tv",
-"series",
-params
-);
-
-}
-
-document.getElementById("seriesGrid").innerHTML=
-results.map(card).join("");
-
-}
-
-
-/* =====================================================
-   الكل
+   عرض الكل
 ===================================================== */
 
 function renderAll(){
 
-loadMovieCategory(
-"latest",
-document.querySelector(
-"#moviesPage .category-btn"
-)
-);
-
-loadSeriesCategory(
-"latest",
-document.querySelector(
-"#seriesPage .category-btn"
-)
-);
-
-document.getElementById("animeGrid").innerHTML=
+const movies=
 content
-.filter(x=>x.type==="anime")
+.filter(
+x=>x.type==="movie"
+);
+
+const series=
+content
+.filter(
+x=>x.type==="series"
+);
+
+const anime=
+content
+.filter(
+x=>x.type==="anime"
+);
+
+const cartoon=
+content
+.filter(
+x=>x.type==="cartoon"
+);
+
+
+document.getElementById(
+"moviesGrid"
+).innerHTML=
+movies
 .map(card)
 .join("");
 
-document.getElementById("cartoonGrid").innerHTML=
-content
-.filter(x=>x.type==="cartoon")
+
+document.getElementById(
+"seriesGrid"
+).innerHTML=
+series
 .map(card)
 .join("");
+
+
+document.getElementById(
+"animeGrid"
+).innerHTML=
+anime
+.map(card)
+.join("");
+
+
+document.getElementById(
+"cartoonGrid"
+).innerHTML=
+cartoon
+.map(card)
+.join("");
+
 
 renderFavorites();
 
@@ -1694,58 +2073,124 @@ renderHistory();
 
 
 /* =====================================================
-   التفاصيل
+   تصنيف الأفلام
 ===================================================== */
 
-async function openDetails(id,type){
-
-const item=
-content.find(
-x=>x.id===id&&x.type===type
-);
-
-if(!item)return;
-
-document.getElementById("detailsTitle").innerText=
-item.title;
-
-document.getElementById("detailsMeta").innerText=
-`${typeName(item.type)}`
-+
-(item.year?` • ${item.year}`:"")
-+
-(item.rating?` • ⭐ ${item.rating}`:"");
-
-document.getElementById("detailsDescription").innerText=
-item.description;
-
-document.getElementById("detailsPoster").src=
-item.poster||"";
-
-document.getElementById("detailsBackdrop").src=
-item.backdrop||
-item.poster||
-"";
-
-document.getElementById("details").classList.add("show");
-
-document.body.style.overflow="hidden";
-
-await loadProviders(item.id,item.type);
-
-if(
-type==="series"||
-type==="anime"||
-type==="cartoon"
+async function loadMovieCategory(
+category,
+button
 ){
 
-document.getElementById("seasonsBox").style.display="block";
+document
+.querySelectorAll(
+"#moviesPage .category-btn"
+)
+.forEach(
+x=>x.classList.remove("active")
+);
 
-await loadSeasons(item.id);
+
+button.classList.add(
+"active"
+);
+
+
+const grid=
+document.getElementById(
+"moviesGrid"
+);
+
+
+grid.innerHTML=
+`
+<div class="loading">
+جاري تحميل الأفلام...
+</div>
+`;
+
+
+let results=[];
+
+
+if(category==="latest"){
+
+results=
+content.filter(
+x=>x.type==="movie"
+);
 
 }else{
 
-document.getElementById("seasonsBox").style.display="none";
+let params={
+language:"ar-SA",
+sort_by:"popularity.desc",
+page:"1"
+};
+
+
+if(category==="foreign"){
+
+params.with_original_language="en";
+
+}
+
+if(category==="chinese"){
+
+params.with_original_language="zh";
+
+}
+
+if(category==="kdrama"){
+
+params.with_original_language="ko";
+
+}
+
+if(category==="arabic"){
+
+params.with_original_language="ar";
+
+}
+
+
+results=
+await loadMany(
+"discover/movie",
+"movie",
+10
+);
+
+
+/*
+فلترة إضافية
+*/
+
+if(category==="foreign"){
+
+results=
+results.filter(
+x=>x.type==="movie"
+);
+
+}
+
+}
+
+
+grid.innerHTML=
+results
+.map(card)
+.join("");
+
+
+if(!results.length){
+
+grid.innerHTML=
+`
+<div class="empty">
+لا توجد نتائج.
+</div>
+`;
 
 }
 
@@ -1753,16 +2198,251 @@ document.getElementById("seasonsBox").style.display="none";
 
 
 /* =====================================================
-   المصادر القانونية
+   تصنيف المسلسلات
 ===================================================== */
 
-async function loadProviders(id,type){
+async function loadSeriesCategory(
+category,
+button
+){
+
+document
+.querySelectorAll(
+"#seriesPage .category-btn"
+)
+.forEach(
+x=>x.classList.remove("active")
+);
+
+
+button.classList.add(
+"active"
+);
+
+
+const grid=
+document.getElementById(
+"seriesGrid"
+);
+
+
+grid.innerHTML=
+`
+<div class="loading">
+جاري تحميل المسلسلات...
+</div>
+`;
+
+
+let results=[];
+
+
+if(category==="latest"){
+
+results=
+content.filter(
+x=>x.type==="series"
+);
+
+}else{
+
+let language="en";
+
+
+if(category==="chinese")
+language="zh";
+
+
+if(category==="kdrama")
+language="ko";
+
+
+if(category==="arabic")
+language="ar";
+
+
+results=
+await loadMany(
+"discover/tv",
+"series",
+10
+);
+
+}
+
+
+grid.innerHTML=
+results
+.map(card)
+.join("");
+
+
+if(!results.length){
+
+grid.innerHTML=
+`
+<div class="empty">
+لا توجد نتائج.
+</div>
+`;
+
+}
+
+}
+
+
+/* =====================================================
+   التفاصيل
+===================================================== */
+
+async function openDetails(
+id,
+type
+){
+
+const item=
+content.find(
+x=>
+x.id===id&&
+x.type===type
+);
+
+
+if(!item)return;
+
+
+document.getElementById(
+"detailsTitle"
+).innerText=
+item.title;
+
+
+document.getElementById(
+"detailsMeta"
+).innerText=
+typeName(item.type)
++
+(
+item.year
+?
+" • "+item.year
+:
+""
+)
++
+(
+item.rating
+?
+" • ⭐ "+item.rating
+:
+""
+);
+
+
+document.getElementById(
+"detailsDescription"
+).innerText=
+item.description;
+
+
+document.getElementById(
+"detailsPoster"
+).src=
+item.poster||"";
+
+
+document.getElementById(
+"detailsBackdrop"
+).src=
+item.backdrop||
+item.poster||
+"";
+
+
+document.getElementById(
+"details"
+).classList.add(
+"show"
+);
+
+
+document.body.style.overflow=
+"hidden";
+
+
+/*
+إضافة للتاريخ عند فتح التفاصيل
+*/
+
+addHistory(
+`${item.type}-${item.id}`
+);
+
+
+/*
+مزودو المشاهدة
+*/
+
+await loadProviders(
+item.id,
+item.type
+);
+
+
+/*
+المواسم
+*/
+
+if(
+type==="series"||
+type==="anime"||
+type==="cartoon"
+){
+
+document.getElementById(
+"seasonsBox"
+).style.display=
+"block";
+
+
+await loadSeasons(
+item.id
+);
+
+}else{
+
+document.getElementById(
+"seasonsBox"
+).style.display=
+"none";
+
+}
+
+}
+
+
+/* =====================================================
+   مزودو المشاهدة القانونية
+===================================================== */
+
+async function loadProviders(
+id,
+type
+){
 
 const list=
-document.getElementById("providerList");
+document.getElementById(
+"providerList"
+);
+
 
 list.innerHTML=
-`<div class="loading">جاري البحث...</div>`;
+`
+<div class="loading">
+جاري البحث عن المصادر القانونية...
+</div>
+`;
+
 
 try{
 
@@ -1773,8 +2453,10 @@ type==="movie"
 :
 `tv/${id}/watch/providers`;
 
+
 const data=
 await api(endpoint);
+
 
 const region=
 data.results?.[REGION]
@@ -1783,12 +2465,15 @@ data.results?.US
 ||
 null;
 
+
 if(!region){
 
 list.innerHTML=
-`<div class="empty">
-لا يوجد مزود مشاهدة مسجل لهذا العنوان في بلدك حالياً.
-</div>`;
+`
+<div class="empty">
+لا يوجد مصدر مشاهدة مسجل لهذا العنوان حاليًا.
+</div>
+`;
 
 return;
 
@@ -1797,6 +2482,7 @@ return;
 
 let providers=[];
 
+
 [
 ...(region.flatrate||[]),
 ...(region.free||[]),
@@ -1804,35 +2490,51 @@ let providers=[];
 ...(region.rent||[]),
 ...(region.buy||[])
 ]
-.forEach(p=>{
+.forEach(provider=>{
 
-if(!providers.some(x=>x.provider_id===p.provider_id))
-providers.push(p);
+if(
+!providers.some(
+x=>
+x.provider_id===
+provider.provider_id
+)
+){
+
+providers.push(
+provider
+);
+
+}
 
 });
 
 
 let html="";
 
-providers.forEach(p=>{
+
+providers.forEach(
+provider=>{
 
 html+=`
 
-<div
-class="provider">
+<div class="provider">
 
 ${
-p.logo_path
+provider.logo_path
 ?
-`<img
-src="https://image.tmdb.org/t/p/w92${p.logo_path}"
-alt="">`
+`
+<img
+src="https://image.tmdb.org/t/p/w92${provider.logo_path}"
+alt="">
+`
 :
 ""
 }
 
 <span>
-${escapeHtml(p.provider_name)}
+${escapeHtml(
+provider.provider_name
+)}
 </span>
 
 </div>
@@ -1847,8 +2549,12 @@ if(region.link){
 html+=`
 
 <button
-class="watch-source"
-onclick="openLegalSource('${region.link}')">
+class="legal-watch"
+onclick="
+openLegalSource(
+'${escapeAttribute(region.link)}'
+)
+">
 
 ▶ فتح المصدر القانوني
 
@@ -1860,19 +2566,27 @@ onclick="openLegalSource('${region.link}')">
 
 
 list.innerHTML=
-html||
-`<div class="empty">
-لا توجد معلومات مشاهدة حالياً.
-</div>`;
+html
+||
+`
+<div class="empty">
+لا توجد معلومات مشاهدة.
+</div>
+`;
 
 }catch(error){
 
-console.error(error);
+console.error(
+"Providers:",
+error
+);
 
 list.innerHTML=
-`<div class="empty">
+`
+<div class="empty">
 تعذر جلب مصادر المشاهدة.
-</div>`;
+</div>
+`;
 
 }
 
@@ -1880,12 +2594,15 @@ list.innerHTML=
 
 
 /* =====================================================
-   المصدر القانوني
+   فتح المصدر القانوني
 ===================================================== */
 
-function openLegalSource(url){
+function openLegalSource(
+url
+){
 
 if(!url)return;
+
 
 window.open(
 url,
@@ -1900,68 +2617,120 @@ url,
    المواسم
 ===================================================== */
 
-async function loadSeasons(id){
+async function loadSeasons(
+id
+){
 
 const list=
-document.getElementById("seasonList");
+document.getElementById(
+"seasonList"
+);
+
+
+const episodes=
+document.getElementById(
+"episodeList"
+);
+
 
 list.innerHTML=
-`<div class="loading">جاري تحميل المواسم...</div>`;
+`
+<div class="loading">
+جاري تحميل المواسم...
+</div>
+`;
+
+
+episodes.innerHTML="";
+
 
 try{
 
 const data=
-await api(`tv/${id}`);
+await api(
+`tv/${id}`
+);
+
 
 const seasons=
-data.seasons||[];
+(data.seasons||[])
+.filter(
+s=>s.season_number>=0
+);
+
 
 if(!seasons.length){
 
 list.innerHTML=
-`<div class="empty">لا توجد مواسم.</div>`;
+`
+<div class="empty">
+لا توجد مواسم.
+</div>
+`;
 
 return;
 
 }
 
+
 list.innerHTML=
 seasons
-.filter(s=>s.season_number>=0)
-.map(s=>`
+.map(
+season=>`
 
 <button
 class="season-btn"
-onclick="loadEpisodes(${id},${s.season_number},this)">
+onclick="
+loadEpisodes(
+${id},
+${season.season_number},
+this
+)
+">
 
-الموسم ${s.season_number}
+الموسم ${season.season_number}
 
 </button>
 
-`)
+`
+)
 .join("");
 
+
 const first=
-list.querySelector(".season-btn");
+list.querySelector(
+".season-btn"
+);
+
 
 if(first){
 
-first.classList.add("active");
+first.classList.add(
+"active"
+);
 
-loadEpisodes(
+
+await loadEpisodes(
 id,
-seasons.filter(s=>s.season_number>=0)[0].season_number,
+seasons[0].season_number,
 first
 );
 
 }
 
-}catch(e){
+}catch(error){
+
+console.error(
+"Seasons:",
+error
+);
 
 list.innerHTML=
-`<div class="empty">
+`
+<div class="empty">
 تعذر تحميل المواسم.
-</div>`;
+</div>
+`;
 
 }
 
@@ -1979,16 +2748,32 @@ button
 ){
 
 document
-.querySelectorAll(".season-btn")
-.forEach(x=>x.classList.remove("active"));
+.querySelectorAll(
+".season-btn"
+)
+.forEach(
+x=>x.classList.remove("active")
+);
 
-button.classList.add("active");
+
+button.classList.add(
+"active"
+);
+
 
 const list=
-document.getElementById("episodeList");
+document.getElementById(
+"episodeList"
+);
+
 
 list.innerHTML=
-`<div class="loading">جاري تحميل الحلقات...</div>`;
+`
+<div class="loading">
+جاري تحميل الحلقات...
+</div>
+`;
+
 
 try{
 
@@ -1997,58 +2782,91 @@ await api(
 `tv/${id}/season/${season}`
 );
 
+
 const episodes=
 data.episodes||[];
+
 
 if(!episodes.length){
 
 list.innerHTML=
-`<div class="empty">لا توجد حلقات.</div>`;
+`
+<div class="empty">
+لا توجد حلقات.
+</div>
+`;
 
 return;
 
 }
 
+
 list.innerHTML=
-episodes.map(ep=>`
+episodes
+.map(
+episode=>`
 
 <div class="episode">
 
 <div class="episode-title">
 
-الحلقة ${ep.episode_number}
+الحلقة
+${episode.episode_number}
 
-${ep.name
+${
+episode.name
 ?
-" • "+escapeHtml(ep.name)
-:""}
+" • "+escapeHtml(
+episode.name
+)
+:
+""
+}
 
 </div>
+
 
 <div class="episode-meta">
 
-${ep.air_date||""}
+${episode.air_date||""}
 
 </div>
 
+
 <button
 class="episode-watch"
-onclick="episodeProviders(${id},${season},${ep.episode_number})">
+onclick="
+episodeProviders(
+${id},
+${season},
+${episode.episode_number}
+)
+">
 
-▶ البحث عن مصدر قانوني
+▶ مصدر قانوني للحلقة
 
 </button>
 
 </div>
 
-`).join("");
+`
+)
+.join("");
 
-}catch(e){
+
+}catch(error){
+
+console.error(
+"Episodes:",
+error
+);
 
 list.innerHTML=
-`<div class="empty">
+`
+<div class="empty">
 تعذر تحميل الحلقات.
-</div>`;
+</div>
+`;
 
 }
 
@@ -2067,29 +2885,39 @@ episode
 
 try{
 
+/*
+نستخدم معلومات المسلسل القانونية.
+*/
+
 const data=
 await api(
-`tv/${id}/season/${season}/watch/providers`
+`tv/${id}/watch/providers`
 );
+
 
 const region=
 data.results?.[REGION]
 ||
 data.results?.US;
 
+
 if(region?.link){
 
-openLegalSource(region.link);
+openLegalSource(
+region.link
+);
 
 }else{
 
 alert(
-"لا يوجد مصدر مشاهدة قانوني متاح لهذه الحلقة حالياً."
+"لا يوجد مصدر مشاهدة قانوني متاح حاليًا."
 );
 
 }
 
-}catch(e){
+}catch(error){
+
+console.error(error);
 
 alert(
 "تعذر الحصول على معلومات المصدر."
@@ -2104,12 +2932,18 @@ alert(
    المفضلة
 ===================================================== */
 
-function toggleFavorite(key){
+function toggleFavorite(
+key
+){
 
-if(favorites.includes(key)){
+if(
+favorites.includes(key)
+){
 
 favorites=
-favorites.filter(x=>x!==key);
+favorites.filter(
+x=>x!==key
+);
 
 }else{
 
@@ -2117,12 +2951,17 @@ favorites.push(key);
 
 }
 
+
 localStorage.setItem(
 "watchEnjoyFavorites",
-JSON.stringify(favorites)
+JSON.stringify(
+favorites
+)
 );
 
+
 renderHome();
+
 renderAll();
 
 }
@@ -2132,48 +2971,69 @@ function renderFavorites(){
 
 const items=
 favorites
-.map(key=>{
-
-const parts=key.split("-");
-
-const type=parts[0];
-
-const id=parts.slice(1).join("-");
-
-return content.find(
-x=>x.type===type&&String(x.id)===id
-);
-
-})
+.map(
+key=>
+content.find(
+x=>
+`${x.type}-${x.id}`===key
+)
+)
 .filter(Boolean);
 
-document.getElementById("favoriteGrid").innerHTML=
-items.map(card).join("");
 
-document.getElementById("favoriteEmpty").style.display=
-items.length?"none":"block";
+document.getElementById(
+"favoriteGrid"
+).innerHTML=
+items
+.map(card)
+.join("");
+
+
+document.getElementById(
+"favoriteEmpty"
+).style.display=
+items.length
+?
+"none"
+:
+"block";
 
 }
 
 
 /* =====================================================
-   التاريخ
+   آخر مشاهدة
 ===================================================== */
 
-function addHistory(id){
+function addHistory(
+key
+){
 
 history=
-history.filter(x=>x!==id);
+history.filter(
+x=>x!==key
+);
 
-history.unshift(id);
+
+history.unshift(
+key
+);
+
 
 history=
-history.slice(0,20);
+history.slice(
+0,
+20
+);
+
 
 localStorage.setItem(
 "watchEnjoyHistory",
-JSON.stringify(history)
+JSON.stringify(
+history
+)
 );
+
 
 renderHistory();
 
@@ -2184,14 +3044,32 @@ function renderHistory(){
 
 const items=
 history
-.map(id=>content.find(x=>x.id===id))
+.map(
+key=>
+content.find(
+x=>
+`${x.type}-${x.id}`===key
+)
+)
 .filter(Boolean);
 
-document.getElementById("historyGrid").innerHTML=
-items.map(card).join("");
 
-document.getElementById("historyEmpty").style.display=
-items.length?"none":"block";
+document.getElementById(
+"historyGrid"
+).innerHTML=
+items
+.map(card)
+.join("");
+
+
+document.getElementById(
+"historyEmpty"
+).style.display=
+items.length
+?
+"none"
+:
+"block";
 
 }
 
@@ -2202,15 +3080,22 @@ items.length?"none":"block";
 
 let searchTimer=null;
 
+
 function searchContent(){
 
 const query=
 document
-.getElementById("searchInput")
+.getElementById(
+"searchInput"
+)
 .value
 .trim();
 
-clearTimeout(searchTimer);
+
+clearTimeout(
+searchTimer
+);
+
 
 if(!query){
 
@@ -2220,8 +3105,10 @@ return;
 
 }
 
+
 searchTimer=
-setTimeout(async()=>{
+setTimeout(
+async()=>{
 
 const movies=
 await loadList(
@@ -2233,6 +3120,7 @@ language:"ar-SA"
 }
 );
 
+
 const series=
 await loadList(
 "search/tv",
@@ -2243,46 +3131,82 @@ language:"ar-SA"
 }
 );
 
-showPage("movies");
 
-document.getElementById("moviesGrid").innerHTML=
-[
+const results=[
 ...movies,
 ...series
-]
+];
+
+
+showPage(
+"movies"
+);
+
+
+document.getElementById(
+"moviesGrid"
+).innerHTML=
+results
 .map(card)
 .join("")
 ||
-`<div class="empty">
+`
+<div class="empty">
 لم يتم العثور على نتائج.
-</div>`;
+</div>
+`;
 
-},400);
+},
+400
+);
 
 }
 
 
 /* =====================================================
-   القائمة
+   القائمة الجانبية
 ===================================================== */
 
 function openMenu(){
 
-document.getElementById("sideMenu")
-.classList.add("open");
+document
+.getElementById(
+"sideMenu"
+)
+.classList.add(
+"open"
+);
 
-document.getElementById("overlay")
-.classList.add("show");
+
+document
+.getElementById(
+"overlay"
+)
+.classList.add(
+"show"
+);
 
 }
 
+
 function closeMenu(){
 
-document.getElementById("sideMenu")
-.classList.remove("open");
+document
+.getElementById(
+"sideMenu"
+)
+.classList.remove(
+"open"
+);
 
-document.getElementById("overlay")
-.classList.remove("show");
+
+document
+.getElementById(
+"overlay"
+)
+.classList.remove(
+"show"
+);
 
 }
 
@@ -2291,19 +3215,39 @@ document.getElementById("overlay")
    الصفحات
 ===================================================== */
 
-function showPage(page){
+function showPage(
+page
+){
 
 closeMenu();
 
+
 document
-.querySelectorAll(".page")
-.forEach(x=>x.classList.remove("active"));
+.querySelectorAll(
+".page"
+)
+.forEach(
+x=>
+x.classList.remove(
+"active"
+)
+);
+
 
 const target=
-document.getElementById(page+"Page");
+document.getElementById(
+page+"Page"
+);
 
-if(target)
-target.classList.add("active");
+
+if(target){
+
+target.classList.add(
+"active"
+);
+
+}
+
 
 window.scrollTo({
 top:0,
@@ -2320,14 +3264,26 @@ behavior:"smooth"
 function toggleSearch(){
 
 const box=
-document.getElementById("searchBox");
+document.getElementById(
+"searchBox"
+);
 
-box.classList.toggle("show");
 
-if(box.classList.contains("show")){
+box.classList.toggle(
+"show"
+);
+
+
+if(
+box.classList.contains(
+"show"
+)
+){
 
 document
-.getElementById("searchInput")
+.getElementById(
+"searchInput"
+)
 .focus();
 
 }
@@ -2336,14 +3292,19 @@ document
 
 
 /* =====================================================
-   التفاصيل
+   إغلاق التفاصيل
 ===================================================== */
 
 function closeDetails(){
 
 document
-.getElementById("details")
-.classList.remove("show");
+.getElementById(
+"details"
+)
+.classList.remove(
+"show"
+);
+
 
 document.body.style.overflow="";
 
@@ -2354,27 +3315,51 @@ document.body.style.overflow="";
    المشغل الداخلي
 ===================================================== */
 
-function playVideo(url,title){
+function playVideo(
+url,
+title
+){
 
 const player=
-document.getElementById("player");
+document.getElementById(
+"player"
+);
+
 
 const video=
-document.getElementById("videoPlayer");
+document.getElementById(
+"videoPlayer"
+);
+
 
 const source=
-document.getElementById("videoSource");
+document.getElementById(
+"videoSource"
+);
 
-document.getElementById("playerTitle").innerText=
+
+document.getElementById(
+"playerTitle"
+).innerText=
 "▶ "+title;
 
-source.src=url;
+
+source.src=
+url;
+
 
 video.load();
 
-player.classList.add("show");
 
-video.play().catch(()=>{});
+player.classList.add(
+"show"
+);
+
+
+video.play().catch(
+()=>{}
+);
+
 
 window.scrollTo({
 top:0,
@@ -2385,10 +3370,47 @@ behavior:"smooth"
 
 
 /* =====================================================
-   المساعدات
+   إغلاق المشغل
 ===================================================== */
 
-function typeName(type){
+function closePlayer(){
+
+const video=
+document.getElementById(
+"videoPlayer"
+);
+
+
+video.pause();
+
+
+video.removeAttribute(
+"src"
+);
+
+
+document.getElementById(
+"videoSource"
+).src="";
+
+
+document.getElementById(
+"player"
+)
+.classList.remove(
+"show"
+);
+
+}
+
+
+/* =====================================================
+   أسماء الأنواع
+===================================================== */
+
+function typeName(
+type
+){
 
 if(type==="movie")
 return"فيلم";
@@ -2407,20 +3429,58 @@ return"";
 }
 
 
-function escapeHtml(text){
+/* =====================================================
+   حماية HTML
+===================================================== */
+
+function escapeHtml(
+text
+){
 
 return String(text)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+.replace(
+/&/g,
+"&amp;"
+)
+.replace(
+/</g,
+"&lt;"
+)
+.replace(
+/>/g,
+"&gt;"
+)
+.replace(
+/"/g,
+"&quot;"
+)
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+function escapeAttribute(
+text
+){
+
+return String(text)
+.replace(
+/\\/g,
+"\\\\"
+)
+.replace(
+/'/g,
+"\\'"
+);
 
 }
 
 
 /* =====================================================
-   بدء البرنامج
+   بدء التطبيق
 ===================================================== */
 
 loadContent();
