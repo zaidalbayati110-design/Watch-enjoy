@@ -1,7 +1,8 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
 
-  const endpoint = url.searchParams.get("endpoint") || "trending/movie/week";
+  const endpoint =
+    url.searchParams.get("endpoint") || "trending/movie/week";
 
   const allowed = [
     "trending/movie/week",
@@ -32,17 +33,15 @@ export async function onRequest(context) {
   }
 
   const params = new URLSearchParams(url.searchParams);
+
   params.delete("endpoint");
+
+  params.set("api_key", context.env.TMDB_API_KEY);
 
   const apiUrl =
     `https://api.themoviedb.org/3/${cleanEndpoint}?${params.toString()}`;
 
-  const response = await fetch(apiUrl, {
-    headers: {
-      Authorization: `Bearer ${context.env.TMDB_TOKEN}`,
-      accept: "application/json"
-    }
-  });
+  const response = await fetch(apiUrl);
 
   const data = await response.text();
 
