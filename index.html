@@ -3,166 +3,683 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Watch Enjoy</title>
 
 <style>
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    background:#080808;
-    color:#fff;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+margin:0;
+background:
+radial-gradient(circle at top,#292929 0,#101010 35%,#050505 100%);
+color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-/* الهيدر */
+/* ================= HEADER ================= */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:20;
-    background:rgba(8,8,8,.95);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #252525;
-    padding:15px;
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(5,5,5,.94);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #242424;
+padding:12px 15px;
+}
+
+.top{
+height:48px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
 }
 
 .logo{
-    text-align:center;
-    font-size:25px;
-    font-weight:800;
+font-size:25px;
+font-weight:900;
+letter-spacing:.2px;
 }
 
-/* المحتوى */
+.menu-btn,
+.search-btn{
+position:absolute;
+width:43px;
+height:43px;
+border:1px solid #333;
+border-radius:12px;
+background:#181818;
+color:#fff;
+font-size:20px;
+cursor:pointer;
+}
+
+.menu-btn{
+right:0;
+}
+
+.search-btn{
+left:0;
+}
+
+.search-box{
+display:none;
+margin-top:12px;
+}
+
+.search-box.show{
+display:block;
+}
+
+.search{
+width:100%;
+height:46px;
+padding:0 15px;
+border:1px solid #333;
+border-radius:12px;
+background:#151515;
+color:#fff;
+font-size:16px;
+outline:none;
+}
+
+/* ================= MENU ================= */
+
+.overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+z-index:80;
+}
+
+.overlay.show{
+display:block;
+}
+
+.side-menu{
+position:fixed;
+top:0;
+right:-300px;
+width:285px;
+height:100vh;
+z-index:100;
+background:#111;
+padding:25px 17px;
+transition:.3s;
+box-shadow:-15px 0 40px rgba(0,0,0,.6);
+}
+
+.side-menu.open{
+right:0;
+}
+
+.menu-title{
+font-size:22px;
+font-weight:900;
+margin:5px 0 25px;
+}
+
+.close-menu{
+position:absolute;
+left:15px;
+top:15px;
+width:40px;
+height:40px;
+border:0;
+border-radius:10px;
+background:#292929;
+color:#fff;
+font-size:22px;
+}
+
+.menu-item{
+width:100%;
+padding:14px;
+margin-bottom:9px;
+border:1px solid #292929;
+border-radius:12px;
+background:#191919;
+color:#fff;
+text-align:right;
+font-size:15px;
+cursor:pointer;
+}
+
+/* ================= MAIN ================= */
 
 main{
-    max-width:1100px;
-    margin:auto;
-    padding:20px 15px 60px;
+max-width:1350px;
+margin:auto;
+padding:15px 15px 60px;
 }
 
-.section-title{
-    font-size:22px;
-    font-weight:800;
-    margin:10px 0 18px;
+.page{
+display:none;
 }
 
-/* بطاقة الفيلم */
+.page.active{
+display:block;
+}
+
+/* ================= HERO ================= */
+
+.hero-title{
+font-size:21px;
+font-weight:900;
+margin:12px 0 14px;
+}
+
+.hero{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+}
+
+.hero-card{
+position:relative;
+height:320px;
+border-radius:16px;
+overflow:hidden;
+background:#151515;
+border:1px solid #292929;
+cursor:pointer;
+}
+
+.hero-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.3s;
+}
+
+.hero-card:hover img{
+transform:scale(1.04);
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 40%,
+rgba(0,0,0,.95)
+);
+}
+
+.hero-info{
+position:absolute;
+bottom:0;
+right:0;
+left:0;
+padding:13px;
+}
+
+.hero-name{
+font-weight:900;
+font-size:14px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.hero-meta{
+font-size:11px;
+color:#aaa;
+margin-top:5px;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+margin-top:30px;
+}
+
+.section-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:12px;
+}
+
+.section-header h2{
+margin:0;
+font-size:19px;
+}
+
+.section-header span{
+font-size:11px;
+color:#777;
+}
+
+/* ================= CATEGORIES ================= */
+
+.category-row{
+display:flex;
+gap:8px;
+overflow-x:auto;
+scrollbar-width:none;
+margin-bottom:14px;
+}
+
+.category-row::-webkit-scrollbar{
+display:none;
+}
+
+.category-btn{
+flex:0 0 auto;
+padding:9px 13px;
+border:1px solid #303030;
+border-radius:10px;
+background:#171717;
+color:#ddd;
+cursor:pointer;
+font-size:12px;
+}
+
+.category-btn.active{
+background:#fff;
+color:#000;
+}
+
+/* ================= CARDS ================= */
+
+.horizontal{
+display:flex;
+gap:11px;
+overflow-x:auto;
+scrollbar-width:none;
+padding-bottom:6px;
+}
+
+.horizontal::-webkit-scrollbar{
+display:none;
+}
 
 .card{
-    max-width:260px;
-    margin:auto;
-    background:#151515;
-    border:1px solid #292929;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
+flex:0 0 135px;
+background:#151515;
+border:1px solid #272727;
+border-radius:13px;
+overflow:hidden;
+cursor:pointer;
 }
 
 .poster{
-    width:100%;
-    aspect-ratio:2/3;
-    background:#202020;
+height:190px;
+background:#202020;
 }
 
 .poster img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
 }
 
-.info{
-    padding:15px;
+.card-info{
+padding:9px;
 }
 
-.title{
-    font-size:18px;
-    font-weight:800;
-    margin-bottom:7px;
+.card-title{
+font-size:13px;
+font-weight:800;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 
-.meta{
-    color:#999;
-    font-size:13px;
-    margin-bottom:12px;
+.card-meta{
+font-size:10px;
+color:#888;
+margin-top:5px;
 }
 
-.description{
-    color:#bbb;
-    font-size:13px;
-    line-height:1.7;
-    margin-bottom:15px;
+.card-buttons{
+display:flex;
+gap:5px;
+margin-top:8px;
 }
 
-/* زر المشاهدة */
-
-.watch-button{
-    width:100%;
-    border:0;
-    border-radius:11px;
-    padding:13px;
-    background:#fff;
-    color:#000;
-    font-size:15px;
-    font-weight:800;
-    cursor:pointer;
+.watch-small{
+flex:1;
+border:0;
+border-radius:7px;
+padding:7px 4px;
+background:#fff;
+color:#000;
+font-weight:800;
+font-size:11px;
+cursor:pointer;
 }
 
-.watch-button:active{
-    transform:scale(.98);
+.fav-small{
+width:34px;
+border:1px solid #333;
+border-radius:7px;
+background:#222;
+color:#fff;
+font-size:16px;
+cursor:pointer;
 }
 
-/* المشغل */
+/* ================= DETAILS ================= */
 
-.player-container{
-    display:none;
-    margin-top:30px;
-    background:#111;
-    border:1px solid #292929;
-    border-radius:18px;
-    padding:14px;
+.details{
+display:none;
+position:fixed;
+inset:0;
+z-index:70;
+overflow-y:auto;
+background:#080808;
 }
 
-.player-container.show{
-    display:block;
+.details.show{
+display:block;
+}
+
+.details-backdrop{
+height:310px;
+position:relative;
+overflow:hidden;
+}
+
+.details-backdrop img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.details-backdrop::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent,
+#080808
+);
+}
+
+.details-close{
+position:absolute;
+top:15px;
+right:15px;
+z-index:3;
+width:42px;
+height:42px;
+border:1px solid #555;
+border-radius:12px;
+background:rgba(0,0,0,.65);
+color:#fff;
+font-size:22px;
+}
+
+.details-content{
+max-width:900px;
+margin:-100px auto 0;
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.details-box{
+background:rgba(20,20,20,.96);
+border:1px solid #292929;
+border-radius:20px;
+padding:18px;
+display:grid;
+grid-template-columns:180px 1fr;
+gap:20px;
+}
+
+.details-poster{
+width:180px;
+height:270px;
+border-radius:14px;
+overflow:hidden;
+background:#222;
+}
+
+.details-poster img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.details-title{
+font-size:25px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.details-meta{
+color:#999;
+font-size:13px;
+margin-bottom:15px;
+}
+
+.details-description{
+color:#ccc;
+line-height:1.8;
+font-size:14px;
+}
+
+.main-watch{
+margin-top:18px;
+padding:13px 25px;
+border:0;
+border-radius:11px;
+background:#fff;
+color:#000;
+font-size:15px;
+font-weight:900;
+cursor:pointer;
+}
+
+/* ================= PLAYER ================= */
+
+.player{
+display:none;
+margin:25px 0;
+background:#111;
+border:1px solid #292929;
+border-radius:18px;
+padding:14px;
+}
+
+.player.show{
+display:block;
 }
 
 .player-title{
-    font-size:18px;
-    font-weight:800;
-    margin-bottom:12px;
+font-size:18px;
+font-weight:900;
+margin-bottom:12px;
 }
 
 video{
-    width:100%;
-    max-height:70vh;
-    display:block;
-    background:#000;
-    border-radius:12px;
+width:100%;
+max-height:70vh;
+display:block;
+background:#000;
+border-radius:12px;
 }
 
-.close-button{
-    margin-top:12px;
-    border:0;
-    border-radius:10px;
-    padding:10px 16px;
-    background:#292929;
-    color:white;
-    font-size:14px;
-    cursor:pointer;
+.close-player{
+margin-top:12px;
+padding:9px 15px;
+border:0;
+border-radius:9px;
+background:#292929;
+color:#fff;
+cursor:pointer;
 }
 
-.status{
-    text-align:center;
-    color:#888;
-    margin-top:15px;
-    font-size:13px;
+/* ================= SEASONS ================= */
+
+.seasons{
+margin-top:25px;
+}
+
+.seasons-title{
+font-size:19px;
+font-weight:900;
+margin-bottom:12px;
+}
+
+.season-list{
+display:flex;
+gap:8px;
+overflow-x:auto;
+scrollbar-width:none;
+}
+
+.season-list::-webkit-scrollbar{
+display:none;
+}
+
+.season-btn{
+flex:0 0 auto;
+padding:10px 14px;
+border:1px solid #333;
+border-radius:10px;
+background:#181818;
+color:#fff;
+cursor:pointer;
+}
+
+.season-btn.active{
+background:#fff;
+color:#000;
+}
+
+.episodes{
+margin-top:15px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:10px;
+}
+
+.episode{
+background:#171717;
+border:1px solid #292929;
+border-radius:12px;
+padding:12px;
+}
+
+.episode-title{
+font-weight:800;
+font-size:14px;
+}
+
+.episode-meta{
+font-size:11px;
+color:#888;
+margin-top:5px;
+}
+
+.episode-watch{
+margin-top:10px;
+width:100%;
+padding:9px;
+border:0;
+border-radius:8px;
+background:#fff;
+color:#000;
+font-weight:800;
+cursor:pointer;
+}
+
+/* ================= STATUS ================= */
+
+.loading{
+padding:30px;
+text-align:center;
+color:#888;
+}
+
+.empty{
+padding:40px 10px;
+text-align:center;
+color:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:repeat(5,150px);
+overflow-x:auto;
+scrollbar-width:none;
+}
+
+.hero::-webkit-scrollbar{
+display:none;
+}
+
+.hero-card{
+height:230px;
+}
+
+.details-box{
+grid-template-columns:120px 1fr;
+}
+
+.details-poster{
+width:120px;
+height:180px;
+}
+
+}
+
+@media(max-width:600px){
+
+.logo{
+font-size:22px;
+}
+
+main{
+padding:12px 10px 50px;
+}
+
+.card{
+flex-basis:125px;
+}
+
+.poster{
+height:175px;
+}
+
+.details-content{
+padding:12px;
+}
+
+.details-box{
+grid-template-columns:1fr;
+}
+
+.details-poster{
+width:145px;
+height:215px;
+margin:auto;
+}
+
+.details-title{
+font-size:21px;
+}
+
 }
 
 </style>
@@ -171,10 +688,111 @@ video{
 
 <body>
 
+
+<!-- ================= MENU ================= -->
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeMenu()">
+</div>
+
+
+<div
+class="side-menu"
+id="sideMenu">
+
+<button
+class="close-menu"
+onclick="closeMenu()">
+×
+</button>
+
+<div class="menu-title">
+🎬 Watch Enjoy
+</div>
+
+<button
+class="menu-item"
+onclick="showPage('home')">
+🏠 الرئيسية
+</button>
+
+<button
+class="menu-item"
+onclick="showPage('movies')">
+🎬 الأفلام
+</button>
+
+<button
+class="menu-item"
+onclick="showPage('series')">
+📺 المسلسلات
+</button>
+
+<button
+class="menu-item"
+onclick="showPage('anime')">
+🍥 الأنمي
+</button>
+
+<button
+class="menu-item"
+onclick="showPage('cartoon')">
+🎨 الكارتون
+</button>
+
+<button
+class="menu-item"
+onclick="showPage('favorites')">
+⭐ المفضلة
+</button>
+
+<button
+class="menu-item"
+onclick="showPage('history')">
+🕘 آخر ما شاهدت
+</button>
+
+</div>
+
+
+<!-- ================= HEADER ================= -->
+
 <header>
+
+<div class="top">
+
+<button
+class="menu-btn"
+onclick="openMenu()">
+☰
+</button>
 
 <div class="logo">
 🎬 Watch Enjoy
+</div>
+
+<button
+class="search-btn"
+onclick="toggleSearch()">
+🔍
+</button>
+
+</div>
+
+
+<div
+class="search-box"
+id="searchBox">
+
+<input
+id="searchInput"
+class="search"
+type="search"
+placeholder="ابحث عن فيلم أو مسلسل أو أنمي..."
+oninput="searchContent()">
+
 </div>
 
 </header>
@@ -182,66 +800,18 @@ video{
 
 <main>
 
-<div class="section-title">
-🎬 فيلم تجريبي
-</div>
 
-
-<!-- بطاقة الفيلم -->
-
-<div class="card">
-
-<div class="poster">
-
-<img
-src="https://image.tmdb.org/t/p/w500/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg"
-alt="فيلم تجريبي">
-
-</div>
-
-
-<div class="info">
-
-<div class="title">
-فيلم تجريبي
-</div>
-
-<div class="meta">
-🎬 فيلم • تجربة المشاهدة
-</div>
-
-<div class="description">
-هذه بطاقة تجريبية للتأكد من أن زر المشاهدة
-والمشغل يعملان داخل الموقع.
-</div>
-
-<button
-class="watch-button"
-onclick="startMovie()">
-
-▶ مشاهدة
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- مشغل الفيديو -->
+<!-- ================= PLAYER ================= -->
 
 <div
-class="player-container"
-id="playerContainer">
+class="player"
+id="player">
 
 <div
 class="player-title"
 id="playerTitle">
-
-🎬 المشاهدة الآن
-
+🎬 المشاهدة
 </div>
-
 
 <video
 id="videoPlayer"
@@ -258,123 +828,1798 @@ type="video/mp4">
 
 </video>
 
-
 <button
-class="close-button"
+class="close-player"
 onclick="closePlayer()">
-
-✕ إغلاق المشغل
-
+✕ إغلاق
 </button>
+
+</div>
+
+
+<!-- ================= HOME ================= -->
+
+<section
+class="page active"
+id="homePage">
+
+
+<div class="hero-title">
+🔥 الأحدث والأكثر شعبية
+</div>
 
 
 <div
-class="status"
-id="playerStatus">
+class="hero"
+id="hero">
 
-يتم تشغيل الفيديو داخل الموقع.
-
+<div class="loading">
+جاري التحميل...
 </div>
 
 </div>
+
+
+<div class="section">
+
+<div class="section-header">
+
+<h2>🎬 الأفلام</h2>
+
+<span>سحب ←</span>
+
+</div>
+
+<div
+class="horizontal"
+id="homeMovies">
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-header">
+
+<h2>📺 المسلسلات</h2>
+
+<span>سحب ←</span>
+
+</div>
+
+<div
+class="horizontal"
+id="homeSeries">
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-header">
+
+<h2>🍥 الأنمي</h2>
+
+<span>سحب ←</span>
+
+</div>
+
+<div
+class="horizontal"
+id="homeAnime">
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-header">
+
+<h2>🎨 الكارتون</h2>
+
+<span>سحب ←</span>
+
+</div>
+
+<div
+class="horizontal"
+id="homeCartoon">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MOVIES ================= -->
+
+<section
+class="page"
+id="moviesPage">
+
+<div class="section-header">
+
+<h2>🎬 الأفلام</h2>
+
+</div>
+
+
+<div class="category-row">
+
+<button
+class="category-btn active"
+onclick="movieCategory('latest',this)">
+الأحدث
+</button>
+
+<button
+class="category-btn"
+onclick="movieCategory('foreign',this)">
+الأجنبي
+</button>
+
+<button
+class="category-btn"
+onclick="movieCategory('chinese',this)">
+الصيني
+</button>
+
+<button
+class="category-btn"
+onclick="movieCategory('kdrama',this)">
+K-Drama
+</button>
+
+<button
+class="category-btn"
+onclick="movieCategory('arabic',this)">
+العربي
+</button>
+
+</div>
+
+
+<div
+class="horizontal"
+id="moviesGrid">
+</div>
+
+</section>
+
+
+<!-- ================= SERIES ================= -->
+
+<section
+class="page"
+id="seriesPage">
+
+<div class="section-header">
+
+<h2>📺 المسلسلات</h2>
+
+</div>
+
+
+<div class="category-row">
+
+<button
+class="category-btn active"
+onclick="seriesCategory('latest',this)">
+الأحدث
+</button>
+
+<button
+class="category-btn"
+onclick="seriesCategory('foreign',this)">
+الأجنبي
+</button>
+
+<button
+class="category-btn"
+onclick="seriesCategory('chinese',this)">
+الصيني
+</button>
+
+<button
+class="category-btn"
+onclick="seriesCategory('kdrama',this)">
+K-Drama
+</button>
+
+<button
+class="category-btn"
+onclick="seriesCategory('arabic',this)">
+العربي
+</button>
+
+</div>
+
+
+<div
+class="horizontal"
+id="seriesGrid">
+</div>
+
+</section>
+
+
+<!-- ================= ANIME ================= -->
+
+<section
+class="page"
+id="animePage">
+
+<div class="section-header">
+
+<h2>🍥 الأنمي</h2>
+
+</div>
+
+<div
+class="horizontal"
+id="animeGrid">
+</div>
+
+</section>
+
+
+<!-- ================= CARTOON ================= -->
+
+<section
+class="page"
+id="cartoonPage">
+
+<div class="section-header">
+
+<h2>🎨 الكارتون والرسوم المتحركة</h2>
+
+</div>
+
+<div
+class="horizontal"
+id="cartoonGrid">
+</div>
+
+</section>
+
+
+<!-- ================= FAVORITES ================= -->
+
+<section
+class="page"
+id="favoritesPage">
+
+<div class="section-header">
+
+<h2>⭐ المفضلة</h2>
+
+</div>
+
+<div
+class="horizontal"
+id="favoriteGrid">
+</div>
+
+<div
+class="empty"
+id="favoriteEmpty">
+⭐ لا توجد عناصر في المفضلة.
+</div>
+
+</section>
+
+
+<!-- ================= HISTORY ================= -->
+
+<section
+class="page"
+id="historyPage">
+
+<div class="section-header">
+
+<h2>🕘 آخر ما شاهدت</h2>
+
+</div>
+
+<div
+class="horizontal"
+id="historyGrid">
+</div>
+
+<div
+class="empty"
+id="historyEmpty">
+🕘 لا يوجد سجل مشاهدة.
+</div>
+
+</section>
 
 </main>
 
 
+<!-- ================= DETAILS ================= -->
+
+<div
+class="details"
+id="details">
+
+<div class="details-backdrop">
+
+<button
+class="details-close"
+onclick="closeDetails()">
+×
+</button>
+
+<img
+id="detailsBackdrop"
+src=""
+alt="">
+
+</div>
+
+
+<div class="details-content">
+
+<div class="details-box">
+
+<div class="details-poster">
+
+<img
+id="detailsPoster"
+src=""
+alt="">
+
+</div>
+
+
+<div>
+
+<div
+class="details-title"
+id="detailsTitle">
+</div>
+
+<div
+class="details-meta"
+id="detailsMeta">
+</div>
+
+<div
+class="details-description"
+id="detailsDescription">
+</div>
+
+<button
+class="main-watch"
+id="detailsWatch">
+▶ مشاهدة
+</button>
+
+</div>
+
+</div>
+
+
+<div
+class="seasons"
+id="seasonsBox"
+style="display:none">
+
+<div class="seasons-title">
+📺 المواسم
+</div>
+
+<div
+class="season-list"
+id="seasonList">
+</div>
+
+<div
+class="episodes"
+id="episodeList">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
 
-/*
-========================================
-رابط فيديو تجريبي مرخّص
-========================================
+/* =====================================================
+   إعدادات التطبيق
+===================================================== */
 
-هذا الرابط يستخدم لاختبار المشغل فقط.
-بعد التأكد أن المشغل يعمل،
-يمكن استبداله برابط فيديو قانوني مباشر
-خاص بالمحتوى الذي تملك حق تشغيله.
+const API_BASE = "/api";
+
+
+/*
+رابط تجريبي قانوني لاختبار المشغل.
+بعد التأكد من عمل المشغل يمكنك وضع روابط
+الفيديو القانونية الخاصة بك داخل video.
 */
 
 const DEMO_VIDEO =
 "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4";
 
 
-function startMovie(){
+let content = [];
 
-const playerContainer =
-document.getElementById(
-"playerContainer"
+let favorites =
+JSON.parse(
+localStorage.getItem("watchEnjoyFavorites") || "[]"
 );
 
-const video =
-document.getElementById(
-"videoPlayer"
+let history =
+JSON.parse(
+localStorage.getItem("watchEnjoyHistory") || "[]"
 );
 
-const source =
-document.getElementById(
-"videoSource"
+let currentItem = null;
+
+
+/* =====================================================
+   TMDB
+===================================================== */
+
+async function tmdb(endpoint, type, params={}){
+
+try{
+
+const query =
+new URLSearchParams(params).toString();
+
+const url =
+`${API_BASE}?endpoint=${encodeURIComponent(endpoint)}`
++
+(query ? `&${query}` : "");
+
+
+const response =
+await fetch(url);
+
+
+if(!response.ok){
+
+throw new Error(
+"API error " + response.status
 );
-
-const title =
-document.getElementById(
-"playerTitle"
-);
-
-
-title.innerText =
-"🎬 المشاهدة الآن";
-
-source.src =
-DEMO_VIDEO;
-
-video.load();
-
-playerContainer.classList.add(
-"show"
-);
-
-
-window.scrollTo({
-
-top:
-playerContainer.offsetTop - 20,
-
-behavior:
-"smooth"
-
-});
-
-
-video.play().catch(() => {
-
-document.getElementById(
-"playerStatus"
-).innerText =
-"اضغط ▶ داخل المشغل لبدء الفيديو.";
-
-});
 
 }
 
 
+const data =
+await response.json();
+
+
+return (data.results || []).map(item => {
+
+let itemType = type;
+
+return {
+
+id:item.id,
+
+title:
+item.title ||
+item.name ||
+"بدون عنوان",
+
+type:itemType,
+
+year:(
+item.release_date ||
+item.first_air_date ||
+""
+).slice(0,4),
+
+description:
+item.overview ||
+"لا يوجد وصف متوفر.",
+
+poster:
+item.poster_path
+?
+`https://image.tmdb.org/t/p/w500${item.poster_path}`
+:
+"",
+
+backdrop:
+item.backdrop_path
+?
+`https://image.tmdb.org/t/p/w1280${item.backdrop_path}`
+:
+"",
+
+rating:
+item.vote_average
+?
+Number(item.vote_average).toFixed(1)
+:
+"",
+
+video:""
+
+};
+
+});
+
+}catch(error){
+
+console.error(error);
+
+return [];
+
+}
+
+}
+
+
+/* =====================================================
+   تحميل المحتوى
+===================================================== */
+
+async function loadContent(){
+
+setLoading();
+
+
+const movies =
+await tmdb(
+"movie/popular",
+"movie",
+{
+language:"ar-SA",
+page:"1"
+}
+);
+
+
+const series =
+await tmdb(
+"tv/popular",
+"series",
+{
+language:"ar-SA",
+page:"1"
+}
+);
+
+
+const anime =
+await tmdb(
+"discover/tv",
+"anime",
+{
+language:"ar-SA",
+with_genres:"16",
+with_original_language:"ja",
+sort_by:"popularity.desc",
+page:"1"
+}
+);
+
+
+const cartoon =
+await tmdb(
+"discover/tv",
+"cartoon",
+{
+language:"ar-SA",
+with_genres:"16",
+sort_by:"popularity.desc",
+page:"1"
+}
+);
+
+
+content = [
+...movies,
+...series,
+...anime,
+...cartoon
+];
+
+
+renderHome();
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   تحميل الصفحة
+===================================================== */
+
+function setLoading(){
+
+document.getElementById("hero").innerHTML =
+`<div class="loading">جاري تحميل المحتوى...</div>`;
+
+}
+
+
+/* =====================================================
+   البطاقة
+===================================================== */
+
+function createCard(item){
+
+const fav =
+favorites.includes(item.id);
+
+
+return `
+
+<div
+class="card"
+onclick="openDetails(${item.id},'${item.type}')">
+
+<div class="poster">
+
+${
+item.poster
+?
+`<img
+src="${item.poster}"
+alt="${escapeHtml(item.title)}"
+loading="lazy">`
+:
+`<div
+style="height:100%;display:flex;align-items:center;justify-content:center;font-size:40px">
+${getIcon(item.type)}
+</div>`
+}
+
+</div>
+
+
+<div class="card-info">
+
+<div class="card-title">
+${escapeHtml(item.title)}
+</div>
+
+<div class="card-meta">
+
+${getTypeName(item.type)}
+
+${item.year ? " • " + item.year : ""}
+
+${item.rating ? " • ⭐ " + item.rating : ""}
+
+</div>
+
+
+<div class="card-buttons">
+
+<button
+class="watch-small"
+onclick="event.stopPropagation();watchItem(${item.id},'${item.type}')">
+
+▶ مشاهدة
+
+</button>
+
+
+<button
+class="fav-small"
+onclick="event.stopPropagation();toggleFavorite(${item.id},'${item.type}')">
+
+${fav ? "★" : "☆"}
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   الصفحة الرئيسية
+===================================================== */
+
+function renderHome(){
+
+const latest =
+content
+.filter(x => x.poster)
+.slice(0,5);
+
+
+document.getElementById("hero").innerHTML =
+latest
+.map(item => `
+
+<div
+class="hero-card"
+onclick="openDetails(${item.id},'${item.type}')">
+
+<img
+src="${item.backdrop || item.poster}"
+alt="${escapeHtml(item.title)}">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-info">
+
+<div class="hero-name">
+${escapeHtml(item.title)}
+</div>
+
+<div class="hero-meta">
+${getTypeName(item.type)}
+${item.year ? " • " + item.year : ""}
+</div>
+
+</div>
+
+</div>
+
+`)
+.join("");
+
+
+document.getElementById("homeMovies").innerHTML =
+content
+.filter(x => x.type === "movie")
+.slice(0,12)
+.map(createCard)
+.join("");
+
+
+document.getElementById("homeSeries").innerHTML =
+content
+.filter(x => x.type === "series")
+.slice(0,12)
+.map(createCard)
+.join("");
+
+
+document.getElementById("homeAnime").innerHTML =
+content
+.filter(x => x.type === "anime")
+.slice(0,12)
+.map(createCard)
+.join("");
+
+
+document.getElementById("homeCartoon").innerHTML =
+content
+.filter(x => x.type === "cartoon")
+.slice(0,12)
+.map(createCard)
+.join("");
+
+}
+
+
+/* =====================================================
+   جميع الأقسام
+===================================================== */
+
+function renderAll(){
+
+renderMovieCategory("latest");
+
+renderSeriesCategory("latest");
+
+document.getElementById("animeGrid").innerHTML =
+content
+.filter(x => x.type === "anime")
+.map(createCard)
+.join("");
+
+
+document.getElementById("cartoonGrid").innerHTML =
+content
+.filter(x => x.type === "cartoon")
+.map(createCard)
+.join("");
+
+
+renderFavorites();
+
+renderHistory();
+
+}
+
+
+/* =====================================================
+   تصنيف الأفلام
+===================================================== */
+
+async function movieCategory(category,button){
+
+document
+.querySelectorAll("#moviesPage .category-btn")
+.forEach(x => x.classList.remove("active"));
+
+button.classList.add("active");
+
+renderMovieCategory(category);
+
+}
+
+
+async function renderMovieCategory(category){
+
+let params={
+language:"ar-SA",
+sort_by:"popularity.desc",
+page:"1"
+};
+
+
+if(category === "foreign"){
+
+params.with_original_language="en";
+
+}
+
+if(category === "chinese"){
+
+params.with_original_language="zh";
+
+}
+
+if(category === "kdrama"){
+
+params.with_original_language="ko";
+
+}
+
+if(category === "arabic"){
+
+params.with_original_language="ar";
+
+}
+
+
+let movies;
+
+
+if(category === "latest"){
+
+movies =
+content.filter(
+x => x.type === "movie"
+);
+
+}else{
+
+movies =
+await tmdb(
+"discover/movie",
+"movie",
+params
+);
+
+}
+
+
+document.getElementById("moviesGrid").innerHTML =
+movies
+.slice(0,30)
+.map(createCard)
+.join("")
+||
+`<div class="empty">لا توجد نتائج.</div>`;
+
+}
+
+
+/* =====================================================
+   تصنيف المسلسلات
+===================================================== */
+
+async function seriesCategory(category,button){
+
+document
+.querySelectorAll("#seriesPage .category-btn")
+.forEach(x => x.classList.remove("active"));
+
+button.classList.add("active");
+
+renderSeriesCategory(category);
+
+}
+
+
+async function renderSeriesCategory(category){
+
+let params={
+language:"ar-SA",
+sort_by:"popularity.desc",
+page:"1"
+};
+
+
+if(category === "foreign"){
+
+params.with_original_language="en";
+
+}
+
+if(category === "chinese"){
+
+params.with_original_language="zh";
+
+}
+
+if(category === "kdrama"){
+
+params.with_original_language="ko";
+
+}
+
+if(category === "arabic"){
+
+params.with_original_language="ar";
+
+}
+
+
+let series;
+
+
+if(category === "latest"){
+
+series =
+content.filter(
+x => x.type === "series"
+);
+
+}else{
+
+series =
+await tmdb(
+"discover/tv",
+"series",
+params
+);
+
+}
+
+
+document.getElementById("seriesGrid").innerHTML =
+series
+.slice(0,30)
+.map(createCard)
+.join("")
+||
+`<div class="empty">لا توجد نتائج.</div>`;
+
+}
+
+
+/* =====================================================
+   فتح تفاصيل
+===================================================== */
+
+async function openDetails(id,type){
+
+const item =
+content.find(
+x =>
+x.id === id &&
+x.type === type
+);
+
+
+if(!item)return;
+
+
+currentItem = item;
+
+
+document.getElementById("detailsTitle").innerText =
+item.title;
+
+
+document.getElementById("detailsMeta").innerText =
+`${getTypeName(item.type)}`
++
+(item.year ? ` • ${item.year}` : "")
++
+(item.rating ? ` • ⭐ ${item.rating}` : "");
+
+
+document.getElementById("detailsDescription").innerText =
+item.description;
+
+
+document.getElementById("detailsPoster").src =
+item.poster || "";
+
+
+document.getElementById("detailsBackdrop").src =
+item.backdrop ||
+item.poster ||
+"";
+
+
+document.getElementById("detailsWatch").onclick =
+() => watchItem(item.id,item.type);
+
+
+const seasonsBox =
+document.getElementById("seasonsBox");
+
+
+if(
+type === "series" ||
+type === "anime" ||
+type === "cartoon"
+){
+
+seasonsBox.style.display =
+"block";
+
+await loadSeasons(item.id);
+
+}else{
+
+seasonsBox.style.display =
+"none";
+
+}
+
+
+document.getElementById("details")
+.classList.add("show");
+
+document.body.style.overflow =
+"hidden";
+
+}
+
+
+/* =====================================================
+   إغلاق التفاصيل
+===================================================== */
+
+function closeDetails(){
+
+document
+.getElementById("details")
+.classList
+.remove("show");
+
+document.body.style.overflow =
+"";
+
+}
+
+
+/* =====================================================
+   المواسم
+===================================================== */
+
+async function loadSeasons(id){
+
+const seasonList =
+document.getElementById("seasonList");
+
+seasonList.innerHTML =
+`<div class="loading">جاري تحميل المواسم...</div>`;
+
+const data =
+await tmdb(
+`tv/${id}`,
+"series"
+);
+
+
+let seasons =
+data[0]?.seasons || [];
+
+
+/*
+إذا لم يعطِ الـ API المواسم،
+نحاول الطلب مباشرة.
+*/
+
+if(!seasons.length){
+
+try{
+
+const response =
+await fetch(
+`${API_BASE}?endpoint=${encodeURIComponent(`tv/${id}`)}`
+);
+
+const result =
+await response.json();
+
+seasons =
+result.seasons || [];
+
+}catch(e){}
+
+}
+
+
+if(!seasons.length){
+
+seasonList.innerHTML =
+`<div class="empty">لا توجد بيانات مواسم متاحة.</div>`;
+
+return;
+
+}
+
+
+seasonList.innerHTML =
+seasons
+.filter(s => s.season_number >= 0)
+.map(
+s => `
+
+<button
+class="season-btn"
+onclick="loadEpisodes(${id},${s.season_number},this)">
+
+الموسم ${s.season_number}
+
+</button>
+
+`
+)
+.join("");
+
+
+const first =
+seasonList.querySelector(".season-btn");
+
+
+if(first){
+
+first.classList.add("active");
+
+loadEpisodes(
+id,
+Number(
+first.innerText.replace(/\D/g,"")
+),
+first
+);
+
+}
+
+}
+
+
+/* =====================================================
+   الحلقات
+===================================================== */
+
+async function loadEpisodes(
+id,
+seasonNumber,
+button
+){
+
+document
+.querySelectorAll(".season-btn")
+.forEach(
+x => x.classList.remove("active")
+);
+
+button.classList.add("active");
+
+
+const list =
+document.getElementById("episodeList");
+
+
+list.innerHTML =
+`<div class="loading">جاري تحميل الحلقات...</div>`;
+
+
+try{
+
+const response =
+await fetch(
+`${API_BASE}?endpoint=${encodeURIComponent(
+`tv/${id}/season/${seasonNumber}`
+)}`
+);
+
+
+if(!response.ok){
+
+throw new Error();
+
+}
+
+
+const data =
+await response.json();
+
+
+const episodes =
+data.episodes || [];
+
+
+if(!episodes.length){
+
+list.innerHTML =
+`<div class="empty">لا توجد حلقات.</div>`;
+
+return;
+
+}
+
+
+list.innerHTML =
+episodes.map(ep => `
+
+<div class="episode">
+
+<div class="episode-title">
+
+الحلقة ${ep.episode_number}
+${ep.name ? " • " + escapeHtml(ep.name) : ""}
+
+</div>
+
+<div class="episode-meta">
+
+${ep.air_date || ""}
+
+</div>
+
+<button
+class="episode-watch"
+onclick="watchEpisode(${id},${seasonNumber},${ep.episode_number})">
+
+▶ مشاهدة الحلقة
+
+</button>
+
+</div>
+
+`).join("");
+
+}catch(error){
+
+console.error(error);
+
+list.innerHTML =
+`<div class="empty">
+تعذر تحميل الحلقات حالياً.
+</div>`;
+
+}
+
+}
+
+
+/* =====================================================
+   تشغيل فيلم / مسلسل
+===================================================== */
+
+function watchItem(id,type){
+
+const item =
+content.find(
+x =>
+x.id === id &&
+x.type === type
+);
+
+
+if(!item)return;
+
+
+addHistory(id);
+
+
+closeDetails();
+
+
+playVideo(
+item.video || DEMO_VIDEO,
+item.title
+);
+
+}
+
+
+/* =====================================================
+   تشغيل الحلقة
+===================================================== */
+
+function watchEpisode(
+seriesId,
+season,
+episode
+){
+
+const item =
+content.find(
+x => x.id === seriesId
+);
+
+
+const title =
+item
+?
+`${item.title} — الموسم ${season} — الحلقة ${episode}`
+:
+`الحلقة ${episode}`;
+
+
+addHistory(seriesId);
+
+
+closeDetails();
+
+
+/*
+حالياً نستخدم الفيديو التجريبي.
+عند إضافة مصدر قانوني للحلقة،
+ضع رابط الحلقة هنا بدلاً من DEMO_VIDEO.
+*/
+
+playVideo(
+DEMO_VIDEO,
+title
+);
+
+}
+
+
+/* =====================================================
+   المشغل
+===================================================== */
+
+function playVideo(url,title){
+
+const player =
+document.getElementById("player");
+
+const video =
+document.getElementById("videoPlayer");
+
+const source =
+document.getElementById("videoSource");
+
+
+document.getElementById("playerTitle").innerText =
+"▶ " + title;
+
+
+source.src =
+url;
+
+
+video.load();
+
+
+player.classList.add("show");
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+
+video.play().catch(() => {});
+
+}
+
+
+/* =====================================================
+   إغلاق المشغل
+===================================================== */
+
 function closePlayer(){
 
 const video =
-document.getElementById(
-"videoPlayer"
-);
+document.getElementById("videoPlayer");
 
 video.pause();
 
 video.currentTime = 0;
 
-document.getElementById(
-"playerContainer"
-).classList.remove(
-"show"
+document
+.getElementById("player")
+.classList
+.remove("show");
+
+}
+
+
+/* =====================================================
+   المفضلة
+===================================================== */
+
+function toggleFavorite(id,type){
+
+const key =
+`${type}-${id}`;
+
+
+const index =
+favorites.indexOf(key);
+
+
+if(index >= 0){
+
+favorites.splice(index,1);
+
+}else{
+
+favorites.push(key);
+
+}
+
+
+localStorage.setItem(
+"watchEnjoyFavorites",
+JSON.stringify(favorites)
+);
+
+
+renderHome();
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   عرض المفضلة
+===================================================== */
+
+function renderFavorites(){
+
+const items =
+favorites
+.map(key => {
+
+const [type,id] =
+key.split("-");
+
+return content.find(
+x =>
+x.type === type &&
+String(x.id) === id
+);
+
+})
+.filter(Boolean);
+
+
+document.getElementById("favoriteGrid").innerHTML =
+items
+.map(createCard)
+.join("");
+
+
+document.getElementById("favoriteEmpty")
+.style.display =
+items.length
+?
+"none"
+:
+"block";
+
+}
+
+
+/* =====================================================
+   التاريخ
+===================================================== */
+
+function addHistory(id){
+
+history =
+history.filter(
+x => x !== id
+);
+
+history.unshift(id);
+
+history =
+history.slice(0,20);
+
+
+localStorage.setItem(
+"watchEnjoyHistory",
+JSON.stringify(history)
+);
+
+
+renderHistory();
+
+}
+
+
+function renderHistory(){
+
+const items =
+history
+.map(
+id =>
+content.find(
+x => x.id === id
+)
+)
+.filter(Boolean);
+
+
+document.getElementById("historyGrid").innerHTML =
+items
+.map(createCard)
+.join("");
+
+
+document.getElementById("historyEmpty")
+.style.display =
+items.length
+?
+"none"
+:
+"block";
+
+}
+
+
+/* =====================================================
+   البحث
+===================================================== */
+
+let searchTimer;
+
+
+function searchContent(){
+
+const text =
+document
+.getElementById("searchInput")
+.value
+.trim();
+
+
+clearTimeout(searchTimer);
+
+
+if(!text){
+
+renderHome();
+
+return;
+
+}
+
+
+searchTimer =
+setTimeout(
+async () => {
+
+const movies =
+await tmdb(
+"search/movie",
+"movie",
+{
+query:text,
+language:"ar-SA"
+}
+);
+
+
+const series =
+await tmdb(
+"search/tv",
+"series",
+{
+query:text,
+language:"ar-SA"
+}
+);
+
+
+const results =
+[
+...movies,
+...series
+];
+
+
+content = [
+...content.filter(
+x =>
+x.type === "anime" ||
+x.type === "cartoon"
+),
+...results
+];
+
+
+showPage("movies");
+
+
+document.getElementById("moviesGrid").innerHTML =
+results
+.map(createCard)
+.join("")
+||
+`<div class="empty">لم يتم العثور على نتائج.</div>`;
+
+},
+400
 );
 
 }
+
+
+/* =====================================================
+   الصفحات
+===================================================== */
+
+function showPage(page){
+
+closeMenu();
+
+
+document
+.querySelectorAll(".page")
+.forEach(
+x => x.classList.remove("active")
+);
+
+
+const target =
+document.getElementById(
+page + "Page"
+);
+
+
+if(target){
+
+target.classList.add("active");
+
+}
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+   القائمة
+===================================================== */
+
+function openMenu(){
+
+document
+.getElementById("sideMenu")
+.classList
+.add("open");
+
+document
+.getElementById("overlay")
+.classList
+.add("show");
+
+}
+
+
+function closeMenu(){
+
+document
+.getElementById("sideMenu")
+.classList
+.remove("open");
+
+document
+.getElementById("overlay")
+.classList
+.remove("show");
+
+}
+
+
+/* =====================================================
+   البحث
+===================================================== */
+
+function toggleSearch(){
+
+const box =
+document.getElementById("searchBox");
+
+box.classList.toggle("show");
+
+
+if(box.classList.contains("show")){
+
+document
+.getElementById("searchInput")
+.focus();
+
+}
+
+}
+
+
+/* =====================================================
+   المساعدات
+===================================================== */
+
+function getTypeName(type){
+
+if(type === "movie")
+return "فيلم";
+
+if(type === "series")
+return "مسلسل";
+
+if(type === "anime")
+return "أنمي";
+
+if(type === "cartoon")
+return "كارتون";
+
+return "";
+
+}
+
+
+function getIcon(type){
+
+if(type === "movie")
+return "🎬";
+
+if(type === "series")
+return "📺";
+
+if(type === "anime")
+return "🍥";
+
+return "🎨";
+
+}
+
+
+function escapeHtml(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   التشغيل
+===================================================== */
+
+loadContent();
 
 </script>
 
