@@ -7,49 +7,112 @@ export async function onRequest(context) {
   const allowed = [
     "trending/movie/week",
     "trending/tv/week",
+
     "movie/popular",
     "tv/popular",
+
     "movie/now_playing",
     "movie/top_rated",
     "tv/top_rated",
+
     "discover/movie",
     "discover/tv",
+
     "search/movie",
-    "search/tv"
+    "search/tv",
+
+    // Watch Providers
+    "movie/PLACEHOLDER/watch/providers",
+    "tv/PLACEHOLDER/watch/providers"
   ];
 
-  const cleanEndpoint = endpoint.replace(/^\/+/, "");
+  const cleanEndpoint =
+    endpoint.replace(/^\/+/, "");
 
-  if (!allowed.includes(cleanEndpoint)) {
+  /*
+   * نسمح فقط بمسارات Watch Providers
+   * التي تحتوي على رقم TMDB.
+   */
+  const providerMatch =
+    cleanEndpoint.match(
+      /^(movie|tv)\/(\d+)\/watch\/providers$/
+    );
+
+  const normalAllowed =
+    allowed.includes(cleanEndpoint);
+
+  if (!normalAllowed && !providerMatch) {
     return new Response(
-      JSON.stringify({ error: "Endpoint not allowed" }),
+      JSON.stringify({
+        error: "Endpoint not allowed"
+      }),
       {
         status: 400,
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         }
       }
     );
   }
 
-  const params = new URLSearchParams(url.searchParams);
+  const params =
+    new URLSearchParams(url.searchParams);
 
   params.delete("endpoint");
-
-  params.set("api_key", context.env.TMDB_API_KEY);
 
   const apiUrl =
     `https://api.themoviedb.org/3/${cleanEndpoint}?${params.toString()}`;
 
-  const response = await fetch(apiUrl);
+  try {
 
-  const data = await response.text();
+    const response =
+      await fetch(apiUrl, {
+        headers: {
+          Authorization:
+            `Bearer ${context.env.TMDB_TOKEN}`,
 
-  return new Response(data, {
-    status: response.status,
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    }
-  });
+          accept:
+            "application/json"
+        }
+      });
+
+    const data =
+      await response.text();
+
+    return new Response(
+      data,
+      {
+        status: response.status,
+
+        headers: {
+          "Content-Type":
+            "application/json",
+
+          "Access-Control-Allow-Origin":
+            "*"
+        }
+      }
+    );
+
+  } catch (error) {
+
+    return new Response(
+      JSON.stringify({
+        error:
+          "TMDB request failed"
+      }),
+      {
+        status: 500,
+
+        headers: {
+          "Content-Type":
+            "application/json",
+
+          "Access-Control-Allow-Origin":
+            "*"
+        }
+      }
+    );
+  }
 }
