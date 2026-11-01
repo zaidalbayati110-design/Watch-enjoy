@@ -78,6 +78,611 @@ color:white;
 font-size:21px;
 }
 
+.menu-button{right:0;}
+.search-button{left:0;}
+
+.search-box{
+display:none;
+margin-top:10px;
+}
+
+.search-box.show{display:block;}
+
+.search{
+width:100%;
+height:47px;
+padding:0 15px;
+border-radius:13px;
+border:1px solid #333;
+background:#151515;
+color:#fff;
+outline:none;
+font-size:15px;
+}
+
+.search:focus{border-color:#777;}
+
+main{
+max-width:1350px;
+margin:auto;
+padding:15px 14px 70px;
+}
+
+.page{display:none;}
+
+.hero{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+margin-top:10px;
+}
+
+.hero-card{
+position:relative;
+height:310px;
+border-radius:17px;
+overflow:hidden;
+background:#151515;
+border:1px solid #292929;
+cursor:pointer;
+}
+
+.hero-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.4s;
+}
+
+.hero-card:hover img{transform:scale(1.05);}
+
+.hero-card:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(transparent 35%,rgba(0,0,0,.92) 100%);
+}
+
+.hero-info{
+position:absolute;
+z-index:2;
+bottom:0;
+right:0;
+left:0;
+padding:15px;
+}
+
+.hero-name{
+font-size:16px;
+font-weight:800;
+}
+
+.hero-meta{
+font-size:11px;
+color:#bbb;
+margin-top:5px;
+}
+
+.section{margin-top:30px;}
+
+.section-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
+}
+
+.section-header h2{
+font-size:20px;
+margin:0;
+}
+
+.section-header span{
+font-size:12px;
+color:#777;
+}
+
+.horizontal{
+display:flex;
+gap:12px;
+overflow-x:auto;
+padding-bottom:8px;
+scrollbar-width:none;
+}
+
+.horizontal::-webkit-scrollbar{display:none;}
+
+.card{
+flex:0 0 145px;
+background:#141414;
+border:1px solid #272727;
+border-radius:14px;
+overflow:hidden;
+transition:.25s;
+}
+
+.card:hover{transform:translateY(-3px);}
+
+.poster{
+height:205px;
+background:linear-gradient(135deg,#333,#111);
+position:relative;
+}
+
+.poster img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.type-badge{
+position:absolute;
+top:7px;
+right:7px;
+padding:4px 7px;
+border-radius:7px;
+background:rgba(0,0,0,.75);
+font-size:10px;
+}
+
+.info{padding:10px;}
+
+.title{
+font-size:14px;
+font-weight:800;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.meta{
+font-size:11px;
+color:#858585;
+margin-top:5px;
+}
+
+.rating{
+font-size:11px;
+margin-top:5px;
+}
+
+.actions{
+display:flex;
+gap:5px;
+margin-top:9px;
+}
+
+.watch{
+flex:1;
+border:0;
+border-radius:8px;
+padding:8px 4px;
+background:#fff;
+color:#000;
+font-weight:800;
+font-size:11px;
+}
+
+.favorite{
+width:36px;
+border:1px solid #333;
+border-radius:8px;
+background:#222;
+color:#fff;
+font-size:17px;
+}
+
+.categories{
+display:flex;
+gap:8px;
+overflow-x:auto;
+scrollbar-width:none;
+padding-bottom:4px;
+}
+
+.categories::-webkit-scrollbar{display:none;}
+
+.category{
+flex:0 0 auto;
+border:1px solid #303030;
+background:#171717;
+color:#ddd;
+border-radius:11px;
+padding:10px 14px;
+font-size:13px;
+}
+
+.category.active{
+background:#fff;
+color:#000;
+}
+
+.random-box{
+background:linear-gradient(135deg,#222,#0e0e0e);
+border:1px solid #303030;
+border-radius:17px;
+padding:17px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+}
+
+.random-text h3{
+margin:0 0 5px;
+font-size:18px;
+}
+
+.random-text p{
+margin:0;
+font-size:12px;
+color:#888;
+}
+
+.random-button{
+border:0;
+border-radius:12px;
+background:#fff;
+color:#000;
+font-weight:900;
+padding:12px 16px;
+white-space:nowrap;
+}
+
+.overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+z-index:80;
+}
+
+.overlay.show{display:block;}
+
+.side-menu{
+position:fixed;
+z-index:100;
+top:0;
+right:-310px;
+width:290px;
+height:100vh;
+background:#101010;
+padding:25px 17px;
+transition:.3s;
+box-shadow:-15px 0 40px rgba(0,0,0,.7);
+}
+
+.side-menu.open{right:0;}
+
+.close-menu{
+position:absolute;
+left:15px;
+top:16px;
+width:40px;
+height:40px;
+border:0;
+border-radius:10px;
+background:#252525;
+color:#fff;
+font-size:22px;
+}
+
+.menu-title{
+font-size:22px;
+font-weight:900;
+margin-bottom:25px;
+}
+
+.menu-item{
+width:100%;
+border:0;
+border-radius:12px;
+background:#1a1a1a;
+color:#fff;
+padding:14px;
+margin-bottom:8px;
+text-align:right;
+font-size:15px;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+z-index:200;
+background:rgba(0,0,0,.82);
+padding:15px;
+overflow-y:auto;
+}
+
+.modal.show{display:block;}
+
+.modal-box{
+max-width:850px;
+margin:35px auto;
+background:#121212;
+border:1px solid #292929;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+}
+
+.modal-close{
+position:absolute;
+z-index:5;
+left:12px;
+top:12px;
+width:40px;
+height:40px;
+border:0;
+border-radius:11px;
+background:rgba(0,0,0,.7);
+color:white;
+font-size:21px;
+}
+
+.detail-backdrop{
+height:280px;
+background:#111;
+position:relative;
+}
+
+.detail-backdrop img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.detail-backdrop:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(transparent 25%,#121212 100%);
+}
+
+.detail-content{
+padding:20px;
+margin-top:-55px;
+position:relative;
+z-index:2;
+}
+
+.detail-title{
+font-size:25px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+.detail-meta{
+color:#aaa;
+font-size:12px;
+margin-bottom:15px;
+}
+
+.detail-description{
+color:#ccc;
+font-size:14px;
+line-height:1.8;
+}
+
+.detail-actions{
+display:flex;
+gap:8px;
+margin-top:18px;
+}
+
+.big-watch{
+border:0;
+border-radius:11px;
+background:#fff;
+color:#000;
+font-weight:900;
+padding:12px 20px;
+}
+
+.season-select{
+width:100%;
+margin-top:20px;
+padding:12px;
+border-radius:11px;
+border:1px solid #333;
+background:#1b1b1b;
+color:#fff;
+font-size:14px;
+}
+
+.episodes{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+margin-top:12px;
+}
+
+.episode{
+background:#1a1a1a;
+border:1px solid #292929;
+border-radius:11px;
+padding:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.episode-title{font-size:13px;}
+
+.episode button{
+border:0;
+border-radius:8px;
+background:#fff;
+color:#000;
+padding:7px 10px;
+font-size:11px;
+font-weight:800;
+}
+
+.player{
+display:none;
+background:#0c0c0c;
+border:1px solid #292929;
+border-radius:17px;
+padding:12px;
+margin-bottom:20px;
+}
+
+.player.show{display:block;}
+
+.player video{
+width:100%;
+max-height:70vh;
+background:#000;
+border-radius:11px;
+}
+
+.player-title{
+font-size:17px;
+font-weight:800;
+padding:8px 2px;
+}
+
+.close-player{
+border:0;
+border-radius:9px;
+background:#292929;
+color:#fff;
+padding:9px 14px;
+margin-top:8px;
+}
+
+.empty,.loading{
+text-align:center;
+padding:40px 10px;
+color:#777;
+width:100%;
+}
+
+.notification{
+position:fixed;
+bottom:20px;
+left:20px;
+right:20px;
+max-width:500px;
+margin:auto;
+z-index:300;
+background:#fff;
+color:#000;
+padding:13px 16px;
+border-radius:12px;
+font-size:13px;
+font-weight:700;
+display:none;
+}
+
+@media(max-width:900px){
+.hero{grid-template-columns:repeat(3,1fr);}
+.hero-card{height:300px;}
+}
+
+@media(max-width:650px){
+.hero{
+display:flex;
+overflow-x:auto;
+scrollbar-width:none;
+gap:9px;
+}
+.hero::-webkit-scrollbar{display:none;}
+.hero-card{
+flex:0 0 72%;
+height:350px;
+}
+.card{flex-basis:135px;}
+.poster{height:190px;}
+.episodes{grid-template-columns:1fr;}
+.detail-backdrop{height:230px;}
+}
+
+</style>
+</head><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+
+<title>Watch Enjoy</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+background:
+radial-gradient(circle at 50% -10%,#292929 0%,#111 35%,#050505 75%);
+color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+min-height:100vh;
+}
+
+button,input{
+font-family:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(5,5,5,.88);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-bottom:1px solid #242424;
+padding:12px 15px;
+}
+
+.top{
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+letter-spacing:-1px;
+}
+
+.logo span{
+font-size:26px;
+}
+
+.menu-button,
+.search-button{
+position:absolute;
+top:3px;
+width:44px;
+height:44px;
+border-radius:13px;
+border:1px solid #303030;
+background:#171717;
+color:white;
+font-size:21px;
+}
+
 .menu-button{
 right:0;
 }
@@ -689,75 +1294,39 @@ height:230px;
 }
 
 }
-
-</style>
-</head>
-
 <body>
 
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
-
-<!-- القائمة -->
 
 <div class="side-menu" id="sideMenu">
 
 <button class="close-menu" onclick="closeMenu()">×</button>
 
-<div class="menu-title">
-🎬 Watch Enjoy
-</div>
+<div class="menu-title">🎬 Watch Enjoy</div>
 
-<button class="menu-item" onclick="showPage('home')">
-🏠 الرئيسية
-</button>
-
-<button class="menu-item" onclick="showPage('movies')">
-🎬 الأفلام
-</button>
-
-<button class="menu-item" onclick="showPage('series')">
-📺 المسلسلات
-</button>
-
-<button class="menu-item" onclick="showPage('anime')">
-🍥 الأنمي
-</button>
-
-<button class="menu-item" onclick="showPage('cartoon')">
-🧸 الكارتون
-</button>
-
-<button class="menu-item" onclick="showPage('favorites')">
-⭐ المفضلة
-</button>
-
-<button class="menu-item" onclick="showPage('history')">
-🕘 تابع المشاهدة
-</button>
-
-<button class="menu-item" onclick="showPage('later')">
-📋 المشاهدة لاحقاً
-</button>
+<button class="menu-item" onclick="showPage('home')">🏠 الرئيسية</button>
+<button class="menu-item" onclick="showPage('movies')">🎬 الأفلام</button>
+<button class="menu-item" onclick="showPage('series')">📺 المسلسلات</button>
+<button class="menu-item" onclick="showPage('anime')">🍥 الأنمي</button>
+<button class="menu-item" onclick="showPage('cartoon')">🧸 الكارتون</button>
+<button class="menu-item" onclick="showPage('free')">🆓 محتوى مجاني • ملكية عامة</button>
+<button class="menu-item" onclick="showPage('favorites')">⭐ المفضلة</button>
+<button class="menu-item" onclick="showPage('history')">🕘 تابع المشاهدة</button>
+<button class="menu-item" onclick="showPage('later')">📋 المشاهدة لاحقاً</button>
 
 </div>
-
-<!-- الهيدر -->
 
 <header>
 
 <div class="top">
 
-<button class="menu-button" onclick="openMenu()">
-☰
-</button>
+<button class="menu-button" onclick="openMenu()">☰</button>
 
 <div class="logo">
 <span>🎬</span> Watch Enjoy
 </div>
 
-<button class="search-button" onclick="toggleSearch()">
-🔍
-</button>
+<button class="search-button" onclick="toggleSearch()">🔍</button>
 
 </div>
 
@@ -776,18 +1345,25 @@ oninput="searchContent()">
 
 <main>
 
-<!-- المشغل -->
-
 <div class="player" id="player">
 
-<div class="player-title" id="playerTitle">
-🎬 المشاهدة
-</div>
+<div class="player-title" id="playerTitle">🎬 المشاهدة</div>
 
 <video id="video" controls playsinline>
 <source id="videoSource" src="" type="video/mp4">
 متصفحك لا يدعم تشغيل الفيديو.
 </video>
+
+<iframe
+id="archiveFrame"
+title="مشغل Internet Archive"
+src="about:blank"
+allow="autoplay; fullscreen"
+allowfullscreen
+loading="lazy"
+referrerpolicy="strict-origin-when-cross-origin"
+style="display:none;width:100%;aspect-ratio:16/9;border:0;border-radius:11px;background:#000">
+</iframe>
 
 <button class="close-player" onclick="closePlayer()">
 ✕ إغلاق المشغل
@@ -817,108 +1393,82 @@ oninput="searchContent()">
 <div class="random-box">
 
 <div class="random-text">
-
 <h3>🎯 ما تعرف شتشاهد؟</h3>
-
-<p>
-خلّي Watch Enjoy يختار لك شيئاً مناسباً
-</p>
-
+<p>خلّي Watch Enjoy يختار لك شيئاً مناسباً</p>
 </div>
 
-<button class="random-button" onclick="randomMovie()">
-🎲 اختار لي
-</button>
+<button class="random-button" onclick="randomMovie()">🎲 اختار لي</button>
 
 </div>
 
 </div>
 
 <div class="section">
-
-<div class="section-header">
-<h2>🆕 أُضيف حديثاً</h2>
-</div>
-
+<div class="section-header"><h2>🆕 أُضيف حديثاً</h2></div>
 <div class="horizontal" id="latest">
 <div class="loading">جاري التحميل...</div>
 </div>
-
 </div>
 
 <div class="section">
-
 <div class="section-header">
 <h2>🎬 الأفلام</h2>
 <span>سحب للمزيد ←</span>
 </div>
-
 <div class="horizontal" id="homeMovies">
 <div class="loading">جاري التحميل...</div>
 </div>
-
 </div>
 
 <div class="section">
-
 <div class="section-header">
 <h2>📺 المسلسلات</h2>
 <span>سحب للمزيد ←</span>
 </div>
-
 <div class="horizontal" id="homeSeries">
 <div class="loading">جاري التحميل...</div>
 </div>
-
 </div>
 
 <div class="section">
-
 <div class="section-header">
 <h2>🍥 الأنمي</h2>
 <span>سحب للمزيد ←</span>
 </div>
-
 <div class="horizontal" id="homeAnime">
 <div class="loading">جاري التحميل...</div>
 </div>
-
 </div>
 
 <div class="section">
-
-<div class="section-header">
-<h2>🧸 الكارتون</h2>
-</div>
-
+<div class="section-header"><h2>🧸 الكارتون</h2></div>
 <div class="horizontal" id="homeCartoon">
 <div class="loading">جاري التحميل...</div>
 </div>
-
 </div>
 
 <div class="section">
-
 <div class="section-header">
-<h2>🏆 الأعلى تقييماً</h2>
+<h2>🆓 محتوى مجاني بملكية عامة معلنة</h2>
+<span>من الأرشيف العام</span>
+</div>
+<div class="horizontal" id="homeFree">
+<div class="loading">جاري تحميل الأعمال المجانية...</div>
+</div>
 </div>
 
+<div class="section">
+<div class="section-header"><h2>🏆 الأعلى تقييماً</h2></div>
 <div class="horizontal" id="topRated">
 <div class="loading">جاري التحميل...</div>
 </div>
-
 </div>
 
 <div class="section">
-
-<div class="section-header">
-<h2>❤️ قد يعجبك أيضاً</h2>
-</div>
-
+<div class="section-header"><h2>❤️ قد يعجبك أيضاً</h2></div>
 <div class="horizontal" id="recommended">
 <div class="loading">شاهد بعض الأعمال حتى تظهر الاقتراحات.</div>
 </div>
-
 </div>
 
 </section>
@@ -927,38 +1477,20 @@ oninput="searchContent()">
 
 <section class="page" id="moviesPage">
 
-<div class="section-header">
-<h2>🎬 الأفلام</h2>
-</div>
+<div class="section-header"><h2>🎬 الأفلام</h2></div>
 
 <div class="categories">
 
-<button class="category active" onclick="movieCategory('popular',this)">
-🔥 الأحدث
-</button>
-
-<button class="category" onclick="movieCategory('foreign',this)">
-🌍 أجنبي
-</button>
-
-<button class="category" onclick="movieCategory('arabic',this)">
-🇦🇪 عربي
-</button>
-
-<button class="category" onclick="movieCategory('korean',this)">
-🇰🇷 كوري
-</button>
-
-<button class="category" onclick="movieCategory('chinese',this)">
-🇨🇳 صيني
-</button>
+<button class="category active" onclick="movieCategory('popular',this)">🔥 الأحدث</button>
+<button class="category" onclick="movieCategory('foreign',this)">🌍 أجنبي</button>
+<button class="category" onclick="movieCategory('arabic',this)">🇦🇪 عربي</button>
+<button class="category" onclick="movieCategory('korean',this)">🇰🇷 كوري</button>
+<button class="category" onclick="movieCategory('chinese',this)">🇨🇳 صيني</button>
 
 </div>
 
 <div class="section">
-
 <div class="horizontal" id="allMovies"></div>
-
 </div>
 
 </section>
@@ -967,38 +1499,20 @@ oninput="searchContent()">
 
 <section class="page" id="seriesPage">
 
-<div class="section-header">
-<h2>📺 المسلسلات</h2>
-</div>
+<div class="section-header"><h2>📺 المسلسلات</h2></div>
 
 <div class="categories">
 
-<button class="category active" onclick="seriesCategory('popular',this)">
-🔥 الأحدث
-</button>
-
-<button class="category" onclick="seriesCategory('foreign',this)">
-🌍 أجنبي
-</button>
-
-<button class="category" onclick="seriesCategory('korean',this)">
-🇰🇷 K-Drama
-</button>
-
-<button class="category" onclick="seriesCategory('chinese',this)">
-🇨🇳 صيني
-</button>
-
-<button class="category" onclick="seriesCategory('arabic',this)">
-🇦🇪 عربي
-</button>
+<button class="category active" onclick="seriesCategory('popular',this)">🔥 الأحدث</button>
+<button class="category" onclick="seriesCategory('foreign',this)">🌍 أجنبي</button>
+<button class="category" onclick="seriesCategory('korean',this)">🇰🇷 K-Drama</button>
+<button class="category" onclick="seriesCategory('chinese',this)">🇨🇳 صيني</button>
+<button class="category" onclick="seriesCategory('arabic',this)">🇦🇪 عربي</button>
 
 </div>
 
 <div class="section">
-
 <div class="horizontal" id="allSeries"></div>
-
 </div>
 
 </section>
@@ -1007,10 +1521,7 @@ oninput="searchContent()">
 
 <section class="page" id="animePage">
 
-<div class="section-header">
-<h2>🍥 الأنمي</h2>
-</div>
-
+<div class="section-header"><h2>🍥 الأنمي</h2></div>
 <div class="horizontal" id="allAnime"></div>
 
 </section>
@@ -1019,11 +1530,27 @@ oninput="searchContent()">
 
 <section class="page" id="cartoonPage">
 
+<div class="section-header"><h2>🧸 الكارتون والرسوم المتحركة</h2></div>
+<div class="horizontal" id="allCartoon"></div>
+
+</section>
+
+<!-- المحتوى المجاني القانوني -->
+
+<section class="page" id="freePage">
+
 <div class="section-header">
-<h2>🧸 الكارتون والرسوم المتحركة</h2>
+<h2>🆓 محتوى مجاني بملكية عامة معلنة</h2>
 </div>
 
-<div class="horizontal" id="allCartoon"></div>
+<p style="color:#999;font-size:12px;line-height:1.8;margin:0 0 14px">
+الأعمال هنا من Internet Archive وموسومة من رافعيها بأنها ضمن الملكية العامة. بيانات الحقوق يضيفها الرافع وقد تحتاج إلى تحقق إضافي.
+قد تختلف الإتاحة حسب البلد، وبيانات الحقوق يضيفها الرافع وليست ضماناً مستقلاً من الأرشيف.
+</p>
+
+<div class="horizontal" id="allFree">
+<div class="loading">جاري تحميل المكتبة...</div>
+</div>
 
 </section>
 
@@ -1031,15 +1558,9 @@ oninput="searchContent()">
 
 <section class="page" id="favoritesPage">
 
-<div class="section-header">
-<h2>⭐ المفضلة</h2>
-</div>
-
+<div class="section-header"><h2>⭐ المفضلة</h2></div>
 <div class="horizontal" id="favoriteGrid"></div>
-
-<div class="empty" id="favoriteEmpty">
-⭐ لا توجد أعمال في المفضلة.
-</div>
+<div class="empty" id="favoriteEmpty">⭐ لا توجد أعمال في المفضلة.</div>
 
 </section>
 
@@ -1047,15 +1568,9 @@ oninput="searchContent()">
 
 <section class="page" id="historyPage">
 
-<div class="section-header">
-<h2>🕘 تابع المشاهدة</h2>
-</div>
-
+<div class="section-header"><h2>🕘 تابع المشاهدة</h2></div>
 <div class="horizontal" id="historyGrid"></div>
-
-<div class="empty" id="historyEmpty">
-🕘 لا يوجد سجل مشاهدة.
-</div>
+<div class="empty" id="historyEmpty">🕘 لا يوجد سجل مشاهدة.</div>
 
 </section>
 
@@ -1063,15 +1578,9 @@ oninput="searchContent()">
 
 <section class="page" id="laterPage">
 
-<div class="section-header">
-<h2>📋 المشاهدة لاحقاً</h2>
-</div>
-
+<div class="section-header"><h2>📋 المشاهدة لاحقاً</h2></div>
 <div class="horizontal" id="laterGrid"></div>
-
-<div class="empty" id="laterEmpty">
-📋 قائمتك فارغة.
-</div>
+<div class="empty" id="laterEmpty">📋 قائمتك فارغة.</div>
 
 </section>
 
@@ -1083,50 +1592,33 @@ oninput="searchContent()">
 
 <div class="modal-box">
 
-<button class="modal-close" onclick="closeDetails()">
-×
-</button>
+<button class="modal-close" onclick="closeDetails()">×</button>
 
 <div class="detail-backdrop">
-
 <img id="detailBackdrop" src="" alt="">
-
 </div>
 
 <div class="detail-content">
 
-<div class="detail-title" id="detailTitle">
-</div>
-
-<div class="detail-meta" id="detailMeta">
-</div>
-
-<div class="detail-description" id="detailDescription">
-</div>
+<div class="detail-title" id="detailTitle"></div>
+<div class="detail-meta" id="detailMeta"></div>
+<div class="detail-description" id="detailDescription"></div>
 
 <div class="detail-actions">
 
-<button class="big-watch" id="detailWatch">
-▶ مشاهدة
-</button>
-
-<button class="favorite" id="detailFavorite">
-☆ 
-</button>
+<button class="big-watch" id="detailWatch">▶ مشاهدة</button>
+<button class="favorite" id="detailFavorite">☆</button>
 
 </div>
 
+<div id="freeSourceArea"></div>
 <div id="seasonArea"></div>
 
 </div>
-
+</div>
 </div>
 
-</div>
-
-<div class="notification" id="notification"></div>
-
-<script>
+<div class="notification" id="notification"></div><script>
 
 /* =========================
    الحالة
@@ -1150,6 +1642,7 @@ localStorage.getItem("watchEnjoyLater") || "[]"
 );
 
 let currentDetail = null;
+let freeContent = [];
 
 
 /* =========================
@@ -1331,6 +1824,39 @@ topMovies,
 topSeries
 );
 
+loadFreeContent();
+
+}
+
+
+/* =========================
+   المكتبة المجانية القانونية
+========================= */
+
+async function loadFreeContent(){
+
+const data = await api("free");
+
+freeContent = data && Array.isArray(data.results)
+? data.results
+: [];
+
+content = [
+...content.filter(item => item.type !== "free"),
+...freeContent
+];
+
+const cards = freeContent.map(createCard).join("");
+
+document.getElementById("homeFree").innerHTML =
+cards || `<div class="empty">لا توجد أعمال متاحة حالياً. حاول مرة ثانية لاحقاً.</div>`;
+
+const allFree = document.getElementById("allFree");
+if(allFree){
+allFree.innerHTML =
+cards || `<div class="empty">تعذر تحميل المكتبة حالياً.</div>`;
+}
+
 }
 
 
@@ -1340,6 +1866,8 @@ topSeries
 
 function createCard(item){
 
+const safeId = JSON.stringify(item.id);
+
 const fav =
 favorites.includes(item.id);
 
@@ -1347,6 +1875,10 @@ const saved =
 later.includes(item.id);
 
 let typeName =
+item.type==="free"
+?
+"ملكية عامة"
+:
 item.type==="movie"
 ?
 "فيلم"
@@ -1367,7 +1899,7 @@ return `
 class="card"
 data-id="${item.id}"
 data-type="${item.type}"
-onclick="openDetails(${item.id},'${item.type}')">
+onclick="openDetails(${safeId},'${item.type}')">
 
 <div class="poster">
 
@@ -1406,13 +1938,13 @@ ${item.year || ""}
 
 <button
 class="watch"
-onclick="event.stopPropagation();playItem(${item.id},'${item.type}')">
+onclick="event.stopPropagation();playItem(${safeId},'${item.type}')">
 ▶ مشاهدة
 </button>
 
 <button
 class="favorite"
-onclick="event.stopPropagation();toggleFavorite(${item.id})">
+onclick="event.stopPropagation();toggleFavorite(${safeId})">
 ${fav ? "★" : "☆"}
 </button>
 
@@ -1511,11 +2043,13 @@ renderRecommendations();
 
 function heroCard(item){
 
+const safeId = JSON.stringify(item.id);
+
 return `
 
 <div
 class="hero-card"
-onclick="openDetails(${item.id},'${item.type}')">
+onclick="openDetails(${safeId},'${item.type}')">
 
 <img
 src="${item.backdrop || item.poster}"
@@ -1579,12 +2113,16 @@ item.title;
 document.getElementById(
 "detailDescription"
 ).innerText =
-item.description;
+item.type === "free"
+? `${item.description || "لا يوجد وصف متوفر."}\n\nالمصدر: Internet Archive. الترخيص المعلن: الملكية العامة حسب بيانات الرافع، وليس ضماناً مستقلاً لصحة الحقوق.`
+: item.description;
 
 document.getElementById(
 "detailMeta"
 ).innerText =
-`${typeName(item.type)}`
+item.type === "free"
+? `ملكية عامة معلنة • Internet Archive${item.year ? " • " + item.year : ""} • ملكية عامة معلنة`
+: `${typeName(item.type)}`
 +
 (item.year ? ` • ${item.year}` : "")
 +
@@ -1614,6 +2152,13 @@ document.getElementById(
 ()=>{
 toggleFavorite(item.id);
 };
+
+const freeSourceArea = document.getElementById("freeSourceArea");
+if(freeSourceArea){
+freeSourceArea.innerHTML = item.type === "free"
+? `<a href="${item.source}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:14px;color:#bbb;font-size:12px">صفحة المصدر والترخيص في Internet Archive ↗</a>`
+: "";
+}
 
 if(
 item.type==="series" ||
@@ -1696,11 +2241,6 @@ ${s.episode_count ? ` • ${s.episode_count} حلقة` : ""}
 <div
 class="episodes"
 id="episodes">
-
-<div class="loading">
-اختر موسماً...
-</div>
-
 </div>
 
 `;
@@ -1711,1013 +2251,5 @@ seasons[0].season_number
 );
 
 }
-
-
-async function loadEpisodes(
-id,
-season
-){
-
-const box =
-document.getElementById("episodes");
-
-if(!box)
-return;
-
-box.innerHTML =
-`<div class="loading">
-جاري تحميل الحلقات...
-</div>`;
-
-const data =
-await api(
-`tv/${id}/season/${season}`
-);
-
-if(
-!data ||
-!data.episodes
-){
-
-box.innerHTML =
-`<div class="empty">
-لا توجد حلقات.
-</div>`;
-
-return;
-
-}
-
-box.innerHTML =
-data.episodes
-.map(
-episode=>`
-
-<div class="episode">
-
-<div class="episode-title">
-
-الحلقة
-${episode.episode_number}
-
-<br>
-
-<span style="color:#777">
-${escapeHTML(
-episode.name || ""
-)}
-</span>
-
-</div>
-
-<button
-onclick="playEpisode(
-${id},
-${season},
-${episode.episode_number}
-)">
-
-▶ مشاهدة
-
-</button>
-
-</div>
-
-`
-)
-.join("");
-
-}
-
-
-/* =========================
-   تشغيل فيلم
-========================= */
-
-function playItem(id,type){
-
-const item =
-content.find(
-x=>x.id===id &&
-x.type===type
-)
-||
-content.find(
-x=>x.id===id
-);
-
-if(!item)
-return;
-
-closeDetails();
-
-if(!item.video){
-
-notify(
-"هذا العنوان لا يحتوي حالياً على رابط فيديو قانوني. أضف رابط فيديو مسموح بتضمينه حتى يعمل المشغل."
-);
-
-return;
-
-}
-
-startPlayer(
-item.title,
-item.video
-);
-
-addHistory(id);
-
-}
-
-
-/* =========================
-   تشغيل حلقة
-========================= */
-
-function playEpisode(
-showId,
-season,
-episode
-){
-
-/*
-يمكنك ربط روابط الحلقات القانونية
-هنا من قاعدة بياناتك.
-
-مثال البنية المطلوبة:
-
-episodeVideos[showId][season][episode] = "VIDEO_URL";
-*/
-
-const key =
-`${showId}_${season}_${episode}`;
-
-const url =
-window.episodeVideos &&
-window.episodeVideos[key];
-
-if(!url){
-
-notify(
-"رابط مشاهدة هذه الحلقة غير مضاف. أضف رابط الحلقة القانوني داخل مصدر البيانات."
-);
-
-return;
-
-}
-
-startPlayer(
-`الموسم ${season} - الحلقة ${episode}`,
-url
-);
-
-}
-
-
-function startPlayer(
-title,
-url
-){
-
-const player =
-document.getElementById("player");
-
-const video =
-document.getElementById("video");
-
-const source =
-document.getElementById("videoSource");
-
-document.getElementById(
-"playerTitle"
-).innerText =
-"🎬 " + title;
-
-source.src = url;
-
-video.load();
-
-player.classList.add("show");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-video.play().catch(()=>{});
-
-}
-
-
-/* =========================
-   إغلاق المشغل
-========================= */
-
-function closePlayer(){
-
-const video =
-document.getElementById("video");
-
-video.pause();
-
-video.currentTime = 0;
-
-document.getElementById(
-"player"
-).classList.remove("show");
-
-}
-
-
-/* =========================
-   المفضلة
-========================= */
-
-function toggleFavorite(id){
-
-if(
-favorites.includes(id)
-){
-
-favorites =
-favorites.filter(
-x=>x!==id
-);
-
-notify("تمت الإزالة من المفضلة ⭐");
-
-}else{
-
-favorites.push(id);
-
-notify("تمت الإضافة إلى المفضلة ⭐");
-
-}
-
-localStorage.setItem(
-"watchEnjoyFavorites",
-JSON.stringify(favorites)
-);
-
-renderFavorites();
-
-renderHomeRefresh();
-
-}
-
-
-function renderFavorites(){
-
-const items =
-favorites
-.map(
-id =>
-content.find(
-x=>x.id===id
-)
-)
-.filter(Boolean);
-
-document.getElementById(
-"favoriteGrid"
-).innerHTML =
-items
-.map(createCard)
-.join("");
-
-document.getElementById(
-"favoriteEmpty"
-).style.display =
-items.length
-?
-"none"
-:
-"block";
-
-}
-
-
-/* =========================
-   المشاهدة لاحقاً
-========================= */
-
-function toggleLater(id){
-
-if(later.includes(id)){
-
-later =
-later.filter(
-x=>x!==id
-);
-
-}else{
-
-later.push(id);
-
-}
-
-localStorage.setItem(
-"watchEnjoyLater",
-JSON.stringify(later)
-);
-
-renderLater();
-
-}
-
-
-function renderLater(){
-
-const items =
-later
-.map(
-id =>
-content.find(
-x=>x.id===id
-)
-)
-.filter(Boolean);
-
-document.getElementById(
-"laterGrid"
-).innerHTML =
-items
-.map(createCard)
-.join("");
-
-document.getElementById(
-"laterEmpty"
-).style.display =
-items.length
-?
-"none"
-:
-"block";
-
-}
-
-
-/* =========================
-   التاريخ
-========================= */
-
-function addHistory(id){
-
-history =
-history.filter(
-x=>x!==id
-);
-
-history.unshift(id);
-
-history =
-history.slice(0,30);
-
-localStorage.setItem(
-"watchEnjoyHistory",
-JSON.stringify(history)
-);
-
-renderHistory();
-
-renderRecommendations();
-
-}
-
-
-function renderHistory(){
-
-const items =
-history
-.map(
-id =>
-content.find(
-x=>x.id===id
-)
-)
-.filter(Boolean);
-
-document.getElementById(
-"historyGrid"
-).innerHTML =
-items
-.map(createCard)
-.join("");
-
-document.getElementById(
-"historyEmpty"
-).style.display =
-items.length
-?
-"none"
-:
-"block";
-
-}
-
-
-/* =========================
-   الاقتراحات
-========================= */
-
-function renderRecommendations(){
-
-const watched =
-history
-.map(
-id =>
-content.find(
-x=>x.id===id
-)
-)
-.filter(Boolean);
-
-let recommendations;
-
-if(watched.length){
-
-const watchedIds =
-new Set(history);
-
-recommendations =
-content
-.filter(
-x=>!watchedIds.has(x.id)
-)
-.slice(0,15);
-
-}else{
-
-recommendations =
-content.slice(0,15);
-
-}
-
-document.getElementById(
-"recommended"
-).innerHTML =
-recommendations
-.map(createCard)
-.join("");
-
-}
-
-
-/* =========================
-   اختار لي
-========================= */
-
-function randomMovie(){
-
-if(!content.length){
-
-notify("جاري تحميل المحتوى...");
-
-return;
-
-}
-
-const item =
-content[
-Math.floor(
-Math.random()*content.length
-)
-];
-
-openDetails(
-item.id,
-item.type
-);
-
-}
-
-
-/* =========================
-   تصنيفات الأفلام
-========================= */
-
-async function movieCategory(
-category,
-button
-){
-
-setActive(button);
-
-let params = {};
-
-if(category==="foreign"){
-
-params={
-with_original_language:"en",
-sort_by:"popularity.desc"
-};
-
-}
-
-if(category==="arabic"){
-
-params={
-with_original_language:"ar",
-sort_by:"popularity.desc"
-};
-
-}
-
-if(category==="korean"){
-
-params={
-with_original_language:"ko",
-sort_by:"popularity.desc"
-};
-
-}
-
-if(category==="chinese"){
-
-params={
-with_original_language:"zh",
-sort_by:"popularity.desc"
-};
-
-}
-
-const results =
-await loadTMDB(
-"movie/popular",
-"movie",
-params
-);
-
-document.getElementById(
-"allMovies"
-).innerHTML =
-results
-.map(createCard)
-.join("");
-
-}
-
-
-/* =========================
-   تصنيفات المسلسلات
-========================= */
-
-async function seriesCategory(
-category,
-button
-){
-
-setActive(button);
-
-let params = {};
-
-if(category==="foreign"){
-
-params={
-with_original_language:"en",
-sort_by:"popularity.desc"
-};
-
-}
-
-if(category==="arabic"){
-
-params={
-with_original_language:"ar",
-sort_by:"popularity.desc"
-};
-
-}
-
-if(category==="korean"){
-
-params={
-with_original_language:"ko",
-sort_by:"popularity.desc"
-};
-
-}
-
-if(category==="chinese"){
-
-params={
-with_original_language:"zh",
-sort_by:"popularity.desc"
-};
-
-}
-
-const results =
-await loadTMDB(
-"tv/popular",
-"series",
-params
-);
-
-document.getElementById(
-"allSeries"
-).innerHTML =
-results
-.map(createCard)
-.join("");
-
-}
-
-
-/* =========================
-   بحث
-========================= */
-
-let searchTimer;
-
-async function searchContent(){
-
-const text =
-document.getElementById(
-"search"
-).value
-.trim();
-
-if(!text){
-
-return;
-
-}
-
-clearTimeout(searchTimer);
-
-searchTimer =
-setTimeout(
-async()=>{
-
-const [
-movies,
-series
-] =
-await Promise.all([
-
-loadTMDB(
-"search/movie",
-"movie",
-{
-query:text
-}
-),
-
-loadTMDB(
-"search/tv",
-"series",
-{
-query:text
-}
-)
-
-]);
-
-const results =
-[
-...movies,
-...series
-];
-
-showPage("movies");
-
-document.getElementById(
-"allMovies"
-).innerHTML =
-results
-.filter(
-x=>x.type==="movie"
-)
-.map(createCard)
-.join("");
-
-document.getElementById(
-"allSeries"
-).innerHTML =
-results
-.filter(
-x=>x.type==="series"
-)
-.map(createCard)
-.join("");
-
-},
-400
-);
-
-}
-
-
-/* =========================
-   الصفحات
-========================= */
-
-function showPage(page){
-
-closeMenu();
-
-document
-.querySelectorAll(".page")
-.forEach(
-x=>x.style.display="none"
-);
-
-const element =
-document.getElementById(
-page+"Page"
-);
-
-if(element){
-
-element.style.display="block";
-
-}
-
-if(page==="favorites")
-renderFavorites();
-
-if(page==="history")
-renderHistory();
-
-if(page==="later")
-renderLater();
-
-if(page==="movies"){
-
-if(
-!document.getElementById(
-"allMovies"
-).innerHTML.trim()
-){
-
-movieCategory(
-"popular",
-document.querySelector(
-"#moviesPage .category"
-)
-);
-
-}
-
-}
-
-if(page==="series"){
-
-if(
-!document.getElementById(
-"allSeries"
-).innerHTML.trim()
-){
-
-seriesCategory(
-"popular",
-document.querySelector(
-"#seriesPage .category"
-)
-);
-
-}
-
-}
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================
-   القائمة
-========================= */
-
-function openMenu(){
-
-document.getElementById(
-"sideMenu"
-).classList.add("open");
-
-document.getElementById(
-"overlay"
-).classList.add("show");
-
-}
-
-
-function closeMenu(){
-
-document.getElementById(
-"sideMenu"
-).classList.remove("open");
-
-document.getElementById(
-"overlay"
-).classList.remove("show");
-
-}
-
-
-/* =========================
-   البحث
-========================= */
-
-function toggleSearch(){
-
-document.getElementById(
-"searchBox"
-).classList.toggle("show");
-
-if(
-document.getElementById(
-"searchBox"
-).classList.contains("show")
-){
-
-document.getElementById(
-"search"
-).focus();
-
-}
-
-}
-
-
-/* =========================
-   أدوات
-========================= */
-
-function setActive(button){
-
-if(!button)
-return;
-
-button
-.parentElement
-.querySelectorAll(".category")
-.forEach(
-x=>x.classList.remove("active")
-);
-
-button.classList.add("active");
-
-}
-
-
-function closeDetails(){
-
-document.getElementById(
-"detailModal"
-).classList.remove("show");
-
-}
-
-
-function notify(message){
-
-const box =
-document.getElementById(
-"notification"
-);
-
-box.innerText =
-message;
-
-box.style.display =
-"block";
-
-clearTimeout(
-window.notifyTimer
-);
-
-window.notifyTimer =
-setTimeout(
-()=>{
-box.style.display="none";
-},
-3000
-);
-
-}
-
-
-function typeName(type){
-
-if(type==="movie")
-return "فيلم";
-
-if(type==="series")
-return "مسلسل";
-
-if(type==="anime")
-return "أنمي";
-
-return "كارتون";
-
-}
-
-
-function escapeHTML(text){
-
-return String(text || "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-function renderHomeRefresh(){
-
-const movies =
-content.filter(
-x=>x.type==="movie"
-);
-
-const series =
-content.filter(
-x=>x.type==="series"
-);
-
-const anime =
-content.filter(
-x=>x.type==="anime"
-);
-
-const cartoon =
-content.filter(
-x=>x.type==="cartoon"
-);
-
-document.getElementById(
-"homeMovies"
-).innerHTML =
-movies
-.slice(0,15)
-.map(createCard)
-.join("");
-
-document.getElementById(
-"homeSeries"
-).innerHTML =
-series
-.slice(0,15)
-.map(createCard)
-.join("");
-
-document.getElementById(
-"homeAnime"
-).innerHTML =
-anime
-.slice(0,15)
-.map(createCard)
-.join("");
-
-document.getElementById(
-"homeCartoon"
-).innerHTML =
-cartoon
-.slice(0,15)
-.map(createCard)
-.join("");
-
-}
-
-
-/* =========================
-   إغلاق المودال
-========================= */
-
-document.getElementById(
-"detailModal"
-).addEventListener(
-"click",
-function(e){
-
-if(e.target===this)
-closeDetails();
-
-}
-);
-
-
-/* =========================
-   التشغيل
-========================= */
-
-loadContent();
-
-renderFavorites();
-
-renderHistory();
-
-renderLater();
-
-</script>
-
-</body>
-</html>
+</style>
+</head>
